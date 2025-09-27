@@ -29,6 +29,3 @@ texture = ExtResource("1_2jpq4")
 script = SubResource("GDScript_ildd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(488, 241)
