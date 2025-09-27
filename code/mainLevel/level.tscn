@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=15 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -7,8 +7,12 @@
 [ext_resource type="Script" uid="uid://b65ouk8pvnofx" path="res://code/mainLevel/player_2.gd" id="5_alqkf"]
 [ext_resource type="Script" path="res://code/mainLevel/pause_menu.gd" id="6_6xhm6"]
 [ext_resource type="Texture2D" uid="uid://bjai1jb772d22" path="res://assets/ui/arrow.png" id="6_ls32b"]
+[ext_resource type="Texture2D" uid="uid://dd5ke1vdondox" path="res://assets/ui/health3.png" id="7_73ejk"]
 [ext_resource type="Texture2D" uid="uid://bsdy7hkjm6pwo" path="res://assets/ui/pause overlay.png" id="8_cr0me"]
 [ext_resource type="Texture2D" uid="uid://b5pshp4evh2fn" path="res://assets/ui/back.png" id="10_8hfkb"]
+[ext_resource type="Script" uid="uid://bx0m4qeubkfha" path="res://code/mainLevel/hud.gd" id="10_864yn"]
+[ext_resource type="Texture2D" uid="uid://nf2d7j3qo1l6" path="res://assets/ui/health1.png" id="11_f7xle"]
+[ext_resource type="Texture2D" uid="uid://c4o8dukey3w4e" path="res://assets/ui/health2.png" id="12_2f7ys"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -60,6 +64,46 @@ tooltip_text = "You lose either way."
 theme_override_font_sizes/font_size = 42
 theme_override_icons/icon = ExtResource("10_8hfkb")
 text = "QUIT"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 45.0
+offset_bottom = 45.0
+script = ExtResource("10_864yn")
+
+[node name="WaveIndicator" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 97.0
+offset_right = 128.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 32
+text = "WAVE: "
+
+[node name="Health1" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 97.0
+texture = ExtResource("11_f7xle")
+
+[node name="Health2" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 97.0
+texture = ExtResource("12_2f7ys")
+
+[node name="Health3" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 97.0
+texture = ExtResource("7_73ejk")
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]

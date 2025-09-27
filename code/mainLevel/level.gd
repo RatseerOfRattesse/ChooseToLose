@@ -2,6 +2,7 @@ extends Node2D
 
 var ingame = false
 @onready var startButton = get_node('../../MainMenu/Button')
+@onready var health3 = get_node('HUD/Health3')
 @export var wave = 0
 var enemyScene = preload('res://code/entities/enemy.tscn')
 var enemyCount = 0
@@ -15,7 +16,7 @@ func on_start_pressed():
 	ingame = true
 	wave += 1
 
-func _process(delta):
+func _process(_delta):
 	if enemyCount < wave * 5:
 		spawnEnemy()
 		await get_tree().create_timer(0.5).timeout
