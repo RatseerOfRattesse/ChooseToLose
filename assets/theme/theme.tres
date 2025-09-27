@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bom8e7tjcko6t"]
+
+[ext_resource type="FontFile" uid="uid://co587xvk0v3qi" path="res://assets/font/CourierPrime-Regular.ttf" id="1_r3pl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny3hw"]
+bg_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.58382666, 0.8912828, 0.5600925, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3pl3"]
+bg_color = Color(0.08468992, 0.08468994, 0.08468988, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("1_r3pl3")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_ny3hw")
+Button/styles/normal = SubResource("StyleBoxFlat_r3pl3")
