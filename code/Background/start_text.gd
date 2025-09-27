@@ -13,7 +13,7 @@ var temp = 0
 func _ready():
 	start()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_text_submit"):
 		temp += 1
 
