@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqebleahj8hg5"]
+
+[ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
+[ext_resource type="Script" uid="uid://0plxust453dr" path="res://code/mainLevel/camera_2d.gd" id="2_62vf6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="player" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+limit_left = -6000
+limit_top = -6000
+limit_right = 6000
+limit_bottom = 6000
+script = ExtResource("2_62vf6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = -5248.0
+offset_top = -3624.0
+offset_right = 4737.0
+offset_bottom = 4539.0
+texture = ExtResource("1_c4mxw")
+stretch_mode = 1
