@@ -33,6 +33,7 @@ theme_override_icons/icon = ExtResource("4_6kqsr")
 text = "START GAME"
 
 [node name="Options" type="Button" parent="."]
+visible = false
 offset_left = 415.0
 offset_top = 383.0
 offset_right = 741.0
