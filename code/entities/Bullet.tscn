@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk82j"]
 size = Vector2(11.995539, 21.956295)
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_txmte")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

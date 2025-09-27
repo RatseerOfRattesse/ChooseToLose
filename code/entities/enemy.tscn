@@ -8,6 +8,8 @@ radius = 17.0
 height = 54.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_63srw")
 
 [node name="enemyHitbox" type="CollisionShape2D" parent="."]
@@ -18,3 +20,5 @@ shape = SubResource("CapsuleShape2D_uhm1v")
 position = Vector2(0.5, 0.25)
 scale = Vector2(1.21875, 2.015625)
 texture = ExtResource("2_vjx66")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
