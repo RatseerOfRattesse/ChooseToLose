@@ -27,10 +27,10 @@ texture = ExtResource("1_c4mxw")
 script = ExtResource("4_6xhm6")
 
 [node name="player2" type="CharacterBody2D" parent="."]
+position = Vector2(583, 350)
 script = ExtResource("5_alqkf")
 
 [node name="Sprite2D" type="Sprite2D" parent="player2"]
-position = Vector2(573, 315)
 texture = ExtResource("6_ls32b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
