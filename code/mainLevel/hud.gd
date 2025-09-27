@@ -1,0 +1,38 @@
+extends Control
+
+var health = 3
+@onready var health1 = get_node('Health1')
+@onready var health2 = get_node('Health2')
+@onready var health3 = get_node('Health3')
+var healthIndicator = [health1, health2, health3]
+@onready var waveIndicator = get_node('WaveIndicator')
+@onready var level = get_node("../../Level")
+
+func _ready():
+	health1.hide()
+	health2.hide()
+	health3.hide()
+
+func damage():
+	health -= 1
+	
+func _process(_delta):
+	if health == 3:
+		health1.hide()
+		health2.hide()
+		health3.show()
+	elif health == 2:
+		health1.hide()
+		health3.hide()
+		health2.show()
+	elif health == 1:
+		health3.hide()
+		health2.hide()
+		health1.show()
+	else:
+		die()
+	
+	waveIndicator.text = "WAVE: " + str(level.wave)
+
+func die():
+	pass
