@@ -27,3 +27,11 @@ func spawnEnemy():
 	add_child(enemy)
 	enemy.position = Vector2(1162, randi_range(1,648))
 	enemyCount += 1
+
+
+func _on_debuff_1_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_debuff_2_pressed() -> void:
+	pass # Replace with function body.
