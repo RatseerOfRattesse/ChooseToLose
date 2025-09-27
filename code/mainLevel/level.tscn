@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
 [ext_resource type="Shader" uid="uid://bv7wdaxa030kc" path="res://assets/level/scroll.gdshader" id="2_ildd6"]
-[ext_resource type="Script" path="res://code/mainLevel/texture_rect.gd" id="4_6xhm6"]
+[ext_resource type="Script" uid="uid://cphvdq3nsmhan" path="res://code/mainLevel/texture_rect.gd" id="4_6xhm6"]
 [ext_resource type="Script" uid="uid://b65ouk8pvnofx" path="res://code/mainLevel/player_2.gd" id="5_alqkf"]
-[ext_resource type="Script" path="res://code/mainLevel/pause_menu.gd" id="6_6xhm6"]
+[ext_resource type="Script" uid="uid://bsf8bqejityis" path="res://code/mainLevel/pause_menu.gd" id="6_6xhm6"]
 [ext_resource type="Texture2D" uid="uid://bjai1jb772d22" path="res://assets/ui/arrow.png" id="6_ls32b"]
 [ext_resource type="Texture2D" uid="uid://bsdy7hkjm6pwo" path="res://assets/ui/pause overlay.png" id="8_cr0me"]
 [ext_resource type="Texture2D" uid="uid://b5pshp4evh2fn" path="res://assets/ui/back.png" id="10_8hfkb"]
@@ -27,6 +27,7 @@ texture = ExtResource("1_c4mxw")
 script = ExtResource("4_6xhm6")
 
 [node name="player2" type="CharacterBody2D" parent="."]
+z_index = 1
 position = Vector2(583, 350)
 script = ExtResource("5_alqkf")
 
