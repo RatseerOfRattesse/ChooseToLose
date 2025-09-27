@@ -18,10 +18,11 @@ func on_start_pressed():
 func _process(delta):
 	if enemyCount < wave * 5:
 		spawnEnemy()
+		await get_tree().create_timer(0.5).timeout
 
 func spawnEnemy():
 	
 	var enemy = enemyScene.instantiate()
 	add_child(enemy)
-	enemy.position = Vector2(1162, randi_range(1,500))
+	enemy.position = Vector2(1162, randi_range(1,648))
 	enemyCount += 1
