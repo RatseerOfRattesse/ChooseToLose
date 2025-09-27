@@ -4,10 +4,7 @@
 [ext_resource type="Script" uid="uid://thsf4qb3olda" path="res://code/Menus/main_menu.gd" id="1_7ohna"]
 [ext_resource type="FontFile" uid="uid://txxofcksmcxm" path="res://assets/font/CourierPrime-Bold.ttf" id="3_6syeo"]
 [ext_resource type="Texture2D" uid="uid://bjai1jb772d22" path="res://assets/ui/arrow.png" id="4_6kqsr"]
-
-[sub_resource type="GDScript" id="GDScript_6kqsr"]
-script/source = "extends Button
-"
+[ext_resource type="PackedScene" uid="uid://bney6d5ni1qq" path="res://code/Menus/optionsMenu.tscn" id="5_562pe"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_7ohna")
@@ -34,7 +31,16 @@ tooltip_text = "You lose either way."
 theme_override_font_sizes/font_size = 42
 theme_override_icons/icon = ExtResource("4_6kqsr")
 text = "START GAME"
-script = SubResource("GDScript_6kqsr")
+
+[node name="Options" type="Button" parent="."]
+offset_left = 415.0
+offset_top = 383.0
+offset_right = 741.0
+offset_bottom = 439.0
+tooltip_text = "You lose either way."
+theme_override_font_sizes/font_size = 42
+theme_override_icons/icon = ExtResource("4_6kqsr")
+text = "START GAME"
 
 [node name="Credit" type="RichTextLabel" parent="."]
 offset_left = 406.0
@@ -43,3 +49,5 @@ offset_right = 752.0
 offset_bottom = 391.0
 bbcode_enabled = true
 text = "Made by [url=\"https://github.com/idi0cy\"]idi0cy[/url] and [url=\"https://ratseerofrattesse.github.io\"]RatseerOfRattesse[/url]"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("5_562pe")]
