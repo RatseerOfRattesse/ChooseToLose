@@ -7,3 +7,5 @@
 script = ExtResource("1_6xt7p")
 
 [node name="Background" parent="." instance=ExtResource("2_jx1b7")]
+
+[node name="menu" type="Node2D" parent="."]

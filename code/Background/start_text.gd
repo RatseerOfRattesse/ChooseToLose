@@ -1,5 +1,6 @@
 extends Label
 
+@onready var generic = get_node('../Generic')
 @export var done = false
 var printedchars = 0
 var StartText = ["THE YEAR IS 2050.", 
@@ -32,3 +33,6 @@ func start():
 			await get_tree().create_timer(2).timeout
 	text = ""
 	done = true
+	await get_tree().create_timer(2).timeout
+	generic.hide()
+	
