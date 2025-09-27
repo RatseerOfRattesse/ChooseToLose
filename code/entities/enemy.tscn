@@ -11,10 +11,10 @@ height = 54.0
 script = ExtResource("1_63srw")
 
 [node name="enemyHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(571.5, 323.25)
+position = Vector2(0.5, 0.25)
 shape = SubResource("CapsuleShape2D_uhm1v")
 
 [node name="enemySprite" type="Sprite2D" parent="."]
-position = Vector2(571.5, 323.25)
+position = Vector2(0.5, 0.25)
 scale = Vector2(1.21875, 2.015625)
 texture = ExtResource("2_vjx66")
