@@ -6,6 +6,8 @@ var health = 3
 @onready var health3 = get_node('Health3')
 var healthIndicator = [health1, health2, health3]
 @onready var waveIndicator = get_node('WaveIndicator')
+@onready var deathScreen = get_node('DeathScreen')
+@onready var winScreen = get_node('WinScreen')
 @onready var level = get_node("../../Level")
 
 func _ready():
@@ -33,6 +35,17 @@ func _process(_delta):
 		die()
 	
 	waveIndicator.text = "WAVE: " + str(level.wave)
+	
+	if Input.is_action_just_pressed("die"):
+		die()
+		
+	if Input.is_action_just_pressed("win"):
+		win()
 
 func die():
-	pass
+	deathScreen.show()
+	get_tree().paused = true
+	
+func win():
+	winScreen.show()
+	get_tree().paused = true
