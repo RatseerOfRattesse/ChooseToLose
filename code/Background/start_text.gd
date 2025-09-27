@@ -1,7 +1,7 @@
 extends Label
 
 @export var done = false
-var charprinted = false
+var printedchars = 0
 var StartText = ["THE YEAR IS 2050.", 
 "MIRACULOUSLY, THE APOCALYPSE HASN'T HAPPENED YET.", 
 "CORPORATIONS HAVE CONTINUED TO INSINUATE THEMSELVES \n INTO ALL ASPECTS OF REALITY.", 
@@ -26,10 +26,9 @@ func start():
 			if temp == 0:
 				visible_characters += 1
 				await get_tree().create_timer(0.1).timeout
+				printedchars += 1
 		temp = 0
-		charprinted = true
-	if charprinted == true:
-		await get_tree().create_timer(2).timeout
-		charprinted = false
+		if printedchars == StartText[line].length():
+			await get_tree().create_timer(2).timeout
 	text = ""
 	done = true
