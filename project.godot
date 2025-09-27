@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 mouse_cursor/custom_image="uid://c4pikyukxudfd"
+
+[gui]
+
+theme/custom_font="uid://co587xvk0v3qi"
