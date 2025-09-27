@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="The Anticorp Crusade"
+run/main_scene="uid://6at0nrm2gqiy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+mouse_cursor/custom_image="uid://c4pikyukxudfd"
