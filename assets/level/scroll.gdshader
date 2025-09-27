@@ -1,5 +1,11 @@
 shader_type canvas_item;
 
+uniform bool enabled = true;
+
 void vertex() {
-	UV.x += TIME * 0.5;
+	if (enabled) {
+		UV.x += TIME * 0.1;
+	} else {
+		UV.x = UV.x;
+	}
 }

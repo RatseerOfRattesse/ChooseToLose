@@ -1,3 +1,69 @@
-[gd_scene load_steps=0 format=3 uid="uid://bney6d5ni1qq"]
+[gd_scene load_steps=4 format=3 uid="uid://bney6d5ni1qq"]
+
+[ext_resource type="Script" uid="uid://cqqlc72y1bp7q" path="res://code/Menus/options_menu.gd" id="1_tvrln"]
+[ext_resource type="Texture2D" uid="uid://dqcjykmnkfg06" path="res://assets/ui/options bg.png" id="2_v588x"]
+[ext_resource type="Texture2D" uid="uid://b5pshp4evh2fn" path="res://assets/ui/back.png" id="3_v588x"]
 
 [node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_tvrln")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_v588x")
+
+[node name="SFX Slider" type="HSlider" parent="."]
+z_index = 4
+offset_left = 305.0
+offset_top = 246.0
+offset_right = 886.0
+offset_bottom = 328.0
+
+[node name="Music Slider" type="HSlider" parent="."]
+z_index = 4
+offset_left = 305.0
+offset_top = 351.0
+offset_right = 886.0
+offset_bottom = 433.0
+
+[node name="Title" type="Label" parent="."]
+z_index = 2
+offset_left = 393.0
+offset_top = 95.0
+offset_right = 782.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 72
+text = "[OPTIONS]"
+
+[node name="SFX" type="Label" parent="."]
+top_level = true
+z_index = 2
+offset_left = 309.0
+offset_top = 242.0
+offset_right = 501.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="Music" type="Label" parent="."]
+z_index = 2
+offset_left = 308.0
+offset_top = 349.0
+offset_right = 500.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="Back" type="Button" parent="."]
+z_index = 4
+offset_left = 520.0
+offset_top = 476.0
+offset_right = 657.0
+offset_bottom = 516.0
+theme_override_font_sizes/font_size = 32
+theme_override_icons/icon = ExtResource("3_v588x")
+text = "Back
+"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

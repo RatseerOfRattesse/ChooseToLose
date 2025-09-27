@@ -1,5 +1,6 @@
 extends Node2D
 
+var ingame = false
 @onready var startButton = get_node('../../MainMenu/Button')
 
 func _ready():
@@ -8,3 +9,4 @@ func _ready():
 		
 func on_start_pressed():
 	self.show()
+	ingame = true
