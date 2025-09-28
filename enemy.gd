@@ -9,10 +9,6 @@ var scaleFactor = 1
 
 var rotation_direction = 0
 
-func _ready():
-	if collision:
-		collision.area_entered.connect(takeDamage)
-
 func _physics_process(delta):
 	velocity = transform.x * -1 * speed
 	rotation += rotation_direction * rotation_speed * delta
@@ -21,7 +17,7 @@ func _physics_process(delta):
 func _process(delta):
 	success()
 	if health < 1:
-		queue_free
+		queue_free()
 
 func success():
 	if $VisibleOnScreenNotifier2D.is_on_screen():
@@ -29,5 +25,5 @@ func success():
 	else:
 		queue_free()
 
-func takeDamage():
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	health -= 1
