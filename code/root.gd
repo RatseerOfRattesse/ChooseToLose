@@ -12,7 +12,6 @@ extends Node
 
 func _ready():
 	#LOGGING
-	print("STARTING")
 	#LOAD SEQUENCE
 	generic.show()
 	

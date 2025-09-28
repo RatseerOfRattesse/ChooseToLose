@@ -21,7 +21,6 @@ func start():
 	visible_characters = 0
 	for line in 4:
 		visible_characters = 0
-		print(StartText[line])
 		text = StartText[line]
 		for character in StartText[line].length():
 			if temp == 0:

@@ -10,10 +10,8 @@ func _input(event):
 		pressed = !pressed
 		if pressed == true:
 			paused.emit()
-			print("paused")
 		else:
 			unpaused.emit()
-			print("unpaused")
 
 func _process(_delta):
 	if pressed == true:

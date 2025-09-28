@@ -9,8 +9,6 @@ signal enemySpeedBoost
 
 func _ready():
 	self.hide()
-	print(level)
-	print(player)
 
 func _on_next_pressed() -> void:
 	self.show()

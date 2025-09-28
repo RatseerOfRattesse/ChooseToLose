@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="The Anticorp Crusade"
+config/name="Choose To Lose"
 run/main_scene="uid://6at0nrm2gqiy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
