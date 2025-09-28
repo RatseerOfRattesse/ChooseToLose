@@ -30,8 +30,9 @@ func spawnEnemy():
 
 
 func _on_debuff_1_pressed() -> void:
-	pass # Replace with function body.
-
+	wave += 1
+	$HUD/PickDebuff.hide()
 
 func _on_debuff_2_pressed() -> void:
-	pass # Replace with function body.
+	wave += 1
+	$HUD/PickDebuff.hide()
