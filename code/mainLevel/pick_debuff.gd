@@ -5,6 +5,7 @@ extends Control
 const debuffList = [20, 10]
 const debuffDescription = ['Decrease movement speed by 20%', 'Increase enemy movement speed by 10%']
 var debuffSelect = 0
+signal enemySpeedBoost
 
 func _ready():
 	self.hide()
@@ -22,3 +23,4 @@ func _on_debuff_1_pressed() -> void:
 
 func _on_debuff_2_pressed() -> void:
 	level.wave += 1
+	enemySpeedBoost.emit()

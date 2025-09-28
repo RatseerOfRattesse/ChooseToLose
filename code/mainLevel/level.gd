@@ -8,6 +8,7 @@ var ingame = false
 var enemyScene = preload('res://code/entities/enemy.tscn')
 var enemyCount = 0
 var livingEnemies = 2
+var enemy
 
 func _ready():
 	if startButton:
@@ -29,7 +30,7 @@ func _process(_delta):
 		livingEnemies = 1
 
 func spawnEnemy():
-	var enemy = enemyScene.instantiate()
+	enemy = enemyScene.instantiate()
 	add_child(enemy)
 	enemy.position = Vector2(1000, randi_range(40,600))
 	enemyCount += 1
