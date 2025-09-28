@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=22 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bsdy7hkjm6pwo" path="res://assets/ui/pause overlay.png" id="8_cr0me"]
 [ext_resource type="Texture2D" uid="uid://b5pshp4evh2fn" path="res://assets/ui/back.png" id="10_8hfkb"]
 [ext_resource type="Script" uid="uid://bx0m4qeubkfha" path="res://code/mainLevel/hud.gd" id="10_864yn"]
+[ext_resource type="Theme" uid="uid://bom8e7tjcko6t" path="res://assets/theme/theme.tres" id="10_gg7ke"]
 [ext_resource type="Texture2D" uid="uid://nf2d7j3qo1l6" path="res://assets/ui/health1.png" id="11_f7xle"]
 [ext_resource type="Texture2D" uid="uid://c4o8dukey3w4e" path="res://assets/ui/health2.png" id="12_2f7ys"]
 [ext_resource type="Script" uid="uid://d4kqaqsuhqhu0" path="res://code/mainLevel/wave_indicator.gd" id="14_f7xle"]
+[ext_resource type="Script" uid="uid://c81dsipa3u60e" path="res://code/mainLevel/deathmessage.gd" id="14_u6skp"]
 [ext_resource type="Script" uid="uid://2jy8wbeamjjm" path="res://code/mainLevel/pick_debuff.gd" id="15_muymf"]
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
@@ -75,6 +77,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_top = 45.0
 offset_bottom = 45.0
+theme = ExtResource("10_gg7ke")
 script = ExtResource("10_864yn")
 
 [node name="WaveIndicator" type="Label" parent="HUD"]
@@ -129,9 +132,10 @@ offset_left = -1.0
 offset_top = 38.0
 offset_right = 1162.0
 offset_bottom = 110.0
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "[YOU DIED]"
 horizontal_alignment = 1
+script = ExtResource("14_u6skp")
 
 [node name="WaveIndicator" type="Label" parent="HUD/DeathScreen"]
 z_index = 1
@@ -277,6 +281,7 @@ script = ExtResource("18_unoly")
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
+[connection signal="died" from="HUD" to="HUD/DeathScreen/Label" method="_on_hud_died"]
 [connection signal="nextWave" from="HUD" to="PauseMenu" method="_on_hud_next_wave"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="." method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="HUD/PickDebuff" method="_on_debuff_1_pressed"]

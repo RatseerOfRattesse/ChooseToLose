@@ -26,8 +26,8 @@ func _process(_delta):
 	success()
 	if enemyHealth < 1:
 		queue_free()
-		if level.livingEnemies == 3:
-			level.livingEnemies -= 3
+		if level.livingEnemies == 2:
+			level.livingEnemies -= 2
 		else:
 			level.livingEnemies -= 1
 		
@@ -37,7 +37,6 @@ func success():
 	else:
 		queue_free()
 		killThySelf.damage()
-		level.livingEnemies -= 1
 		
 func takeDamage():
 	enemyHealth -= 1
