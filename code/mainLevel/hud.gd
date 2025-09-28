@@ -1,6 +1,6 @@
 extends Control
 
-var health = 3
+@export var health = 3
 @onready var health1 = get_node('Health1')
 @onready var health2 = get_node('Health2')
 @onready var health3 = get_node('Health3')

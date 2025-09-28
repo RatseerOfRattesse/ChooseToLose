@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-var health = 3
+@onready var collision = get_node('res://code/entities/Bullet.tscn')
+var enemyHealth = 3
 var scaleFactor = 1
 @export var speed = 150
 @export var rotation_speed = 5
+@onready var waves = get_node('res://code/mainLevel/level.gd')
+@onready var killThySelf = get_node('../../Level/HUD')
 @onready var level = get_node('../../Level')
 
 var rotation_direction = 0
@@ -15,6 +18,7 @@ func _physics_process(delta):
 
 func _process(_delta):
 	success()
+
 	print(level)
 	if health < 1:
 		queue_free()
@@ -25,6 +29,9 @@ func success():
 		pass
 	else:
 		queue_free()
-
+		killThySelf.damage()
+		
+func takeDamage():
+	enemyHealth -= 1
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	health -= 1
+  health -= 1
