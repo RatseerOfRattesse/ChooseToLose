@@ -5,10 +5,12 @@ extends Control
 @onready var health2 = get_node('Health2')
 @onready var health3 = get_node('Health3')
 var healthIndicator = [health1, health2, health3]
+signal nextWave
 @onready var waveIndicator = get_node('WaveIndicator')
 @onready var deathScreen = get_node('DeathScreen')
 @onready var winScreen = get_node('WinScreen')
 @onready var level = get_node("../../Level")
+@onready var pauseMenu = get_node("../PauseMenu")
 
 func _ready():
 	health1.hide()
@@ -48,8 +50,10 @@ func _process(_delta):
 
 func die():
 	deathScreen.show()
-	get_tree().paused = true
+	pauseMenu.pressed = true
+	nextWave.emit()
 	
 func win():
 	winScreen.show()
-	get_tree().paused = true
+	pauseMenu.pressed = true
+	nextWave.emit()

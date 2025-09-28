@@ -268,6 +268,7 @@ position = Vector2(166, 343)
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
+[connection signal="nextWave" from="HUD" to="PauseMenu" method="_on_hud_next_wave"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="." method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="HUD/PickDebuff" method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff2" to="." method="_on_debuff_2_pressed"]

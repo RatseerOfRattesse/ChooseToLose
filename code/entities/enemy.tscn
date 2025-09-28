@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp24fqo5r8pee"]
 
 [ext_resource type="Script" uid="uid://dpan7l57422yq" path="res://enemy.gd" id="1_63srw"]
-[ext_resource type="Texture2D" uid="uid://18jmklvtnjcy" path="res://assets/ui/options.png" id="2_vjx66"]
+[ext_resource type="Texture2D" uid="uid://c2tx3enj0emhm" path="res://assets/game/enemy.png" id="2_63srw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhm1v"]
 radius = 32.0
@@ -16,7 +16,7 @@ script = ExtResource("1_63srw")
 [node name="enemySprite" type="Sprite2D" parent="."]
 position = Vector2(13, 0.25)
 scale = Vector2(2, 2.015625)
-texture = ExtResource("2_vjx66")
+texture = ExtResource("2_63srw")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

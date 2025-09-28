@@ -2,6 +2,7 @@ extends Control
 
 @onready var pauseOverlay = get_node("PauseOverlay")
 var pressed = false
+var nextWave = false
 signal paused
 signal unpaused
 
@@ -16,7 +17,13 @@ func _input(event):
 func _process(_delta):
 	if pressed == true:
 		get_tree().paused = true
-		self.show()
+		if nextWave == false:
+			self.show()
 	else:
 		get_tree().paused = false
-		self.hide()
+		if nextWave == false:
+			self.hide()
+
+
+func _on_hud_next_wave() -> void:
+	nextWave = true
