@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://nf2d7j3qo1l6" path="res://assets/ui/health1.png" id="11_f7xle"]
 [ext_resource type="Texture2D" uid="uid://c4o8dukey3w4e" path="res://assets/ui/health2.png" id="12_2f7ys"]
 [ext_resource type="Script" uid="uid://d4kqaqsuhqhu0" path="res://code/mainLevel/wave_indicator.gd" id="14_f7xle"]
-[ext_resource type="Script" uid="uid://c81dsipa3u60e" path="res://code/mainLevel/deathmessage.gd" id="14_u6skp"]
+[ext_resource type="Script" path="res://code/mainLevel/deathmessage.gd" id="14_u6skp"]
 [ext_resource type="Script" uid="uid://2jy8wbeamjjm" path="res://code/mainLevel/pick_debuff.gd" id="15_muymf"]
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
