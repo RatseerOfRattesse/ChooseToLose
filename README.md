@@ -1,0 +1,1 @@
+2D Shooter game where you play as a regular civilian who's dreams are being invaded by advertisements. Fight off corpo robots with biblical smiting themed weaponry and select debuffs instead of buffs each round.

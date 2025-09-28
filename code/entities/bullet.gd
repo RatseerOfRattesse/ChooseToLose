@@ -3,7 +3,6 @@ extends Area2D
 func _process(_delta):
 	move()
 	if not $VisibleOnScreenNotifier2D.is_on_screen():
-		print("true")
 		queue_free()
 
 func move():
