@@ -18,8 +18,6 @@ func _physics_process(delta):
 
 func _process(_delta):
 	success()
-
-	print(level)
 	if enemyHealth < 1:
 		queue_free()
 		level.livingEnemies -= 1
