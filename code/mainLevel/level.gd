@@ -22,12 +22,10 @@ func _process(_delta):
 		await get_tree().create_timer(0.5).timeout
 
 func spawnEnemy():
-	
 	var enemy = enemyScene.instantiate()
 	add_child(enemy)
 	enemy.position = Vector2(1162, randi_range(1,648))
 	enemyCount += 1
-
 
 func _on_debuff_1_pressed() -> void:
 	wave += 1

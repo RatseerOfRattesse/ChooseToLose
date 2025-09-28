@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 @onready var collision = get_node('res://code/entities/Bullet.tscn')
-var health = 3
+var enemyHealth = 3
 var scaleFactor = 1
 @export var speed = 150
 @export var rotation_speed = 5
 @onready var waves = get_node('res://code/mainLevel/level.gd')
+@onready var killThySelf = get_node('../../Level/HUD')
 
 var rotation_direction = 0
 
@@ -20,14 +21,15 @@ func _physics_process(delta):
 
 func _process(delta):
 	success()
-	if health < 1:
-		queue_free
+	if enemyHealth < 1:
+		queue_free()
 
 func success():
 	if $VisibleOnScreenNotifier2D.is_on_screen():
 		pass
 	else:
 		queue_free()
-
+		killThySelf.damage()
+		
 func takeDamage():
-	health -= 1
+	enemyHealth -= 1
