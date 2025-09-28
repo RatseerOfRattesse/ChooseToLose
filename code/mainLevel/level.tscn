@@ -23,6 +23,7 @@ shader = ExtResource("2_ildd6")
 shader_parameter/enabled = true
 
 [node name="Level" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_2jpq4")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -35,6 +36,7 @@ texture = ExtResource("1_c4mxw")
 script = ExtResource("4_6xhm6")
 
 [node name="player2" type="CharacterBody2D" parent="."]
+process_mode = 1
 position = Vector2(583, 350)
 script = ExtResource("5_alqkf")
 
@@ -265,7 +267,9 @@ theme_override_icons/icon = ExtResource("6_ls32b")
 text = "NEXT WAVE"
 
 [node name="Enemy" parent="." instance=ExtResource("17_anylg")]
-position = Vector2(16130, 2604)
+
+process_mode = 1
+position = Vector2(166, 343)
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
