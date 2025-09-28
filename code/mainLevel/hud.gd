@@ -21,10 +21,7 @@ func _ready():
 
 func damage():
 	health -= 1
-	if level.livingEnemies == 2:
-		level.livingEnemies -= 2
-	else:
-		level.livingEnemies -= 1
+	level.livingEnemies -= 1
 	
 func _process(_delta):
 	if health == 3:  
@@ -75,3 +72,6 @@ func win():
 	winScreen.show()
 	pauseMenu.pressed = true
 	nextWave.emit()
+	level.ingame = false
+	level.enemiesLoaded = false
+	level.enemyCount = 0

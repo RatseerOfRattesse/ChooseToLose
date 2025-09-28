@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var enemyHealth = 3
+var enemyHealth = 1
 var scaleFactor = 1
 @export var enemyspeed = 150.0
 @export var rotation_enemyspeed = 5
@@ -23,21 +23,16 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(_delta):
-	success()
-	if enemyHealth < 1:
-		queue_free()
-		if level.livingEnemies == 2:
-			level.livingEnemies -= 2
-		else:
-			level.livingEnemies -= 1
-		
-func success():
 	if position.x > 0:
 		pass
 	else:
+		level.livingEnemies -= 1
 		queue_free()
 		killThySelf.damage()
-		
+	if enemyHealth < 0:
+		level.livingEnemies -= 1
+		queue_free()
+
 func takeDamage():
 	enemyHealth -= 1
 	

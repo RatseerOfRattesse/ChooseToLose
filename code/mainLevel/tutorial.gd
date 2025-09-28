@@ -41,3 +41,4 @@ func type(array):
 	done = true
 	await get_tree().create_timer(2).timeout
 	level.wave += 1
+	level.ingame = true
