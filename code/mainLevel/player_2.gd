@@ -32,4 +32,5 @@ func _process(_delta):
 		
 func spawn_bullet():
 	var bullet = bulletScene.instantiate()
-	add_child(bullet)
+	owner.add_child(bullet)
+	bullet.position = $Marker2D.global_position
