@@ -41,12 +41,6 @@ func _process(_delta):
 		die()
 	
 	waveIndicator.text = "WAVE: " + str(level.wave)
-	
-	if Input.is_action_just_pressed("die"):
-		die()
-		
-	if Input.is_action_just_pressed("win"):
-		win()
 
 func die():
 	deathScreen.show()
