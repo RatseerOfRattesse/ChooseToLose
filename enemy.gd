@@ -20,7 +20,7 @@ func _process(_delta):
 	success()
 
 	print(level)
-	if health < 1:
+	if enemyHealth < 1:
 		queue_free()
 		level.livingEnemies -= 1
 
@@ -33,5 +33,6 @@ func success():
 		
 func takeDamage():
 	enemyHealth -= 1
+	
 func _on_area_2d_area_entered(area: Area2D) -> void:
-  health -= 1
+	enemyHealth -= 1
