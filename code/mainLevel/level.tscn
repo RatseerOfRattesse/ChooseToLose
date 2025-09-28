@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=19 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -17,8 +17,6 @@
 [ext_resource type="Script" uid="uid://2jy8wbeamjjm" path="res://code/mainLevel/pick_debuff.gd" id="15_muymf"]
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
-[ext_resource type="Theme" uid="uid://bom8e7tjcko6t" path="res://assets/theme/theme.tres" id="18_u6skp"]
-[ext_resource type="Script" uid="uid://d3cfu8xwcfuce" path="res://code/mainLevel/tutorial.gd" id="19_gg7ke"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -47,19 +45,16 @@ texture = ExtResource("6_ls32b")
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("18_u6skp")
 script = ExtResource("6_6xhm6")
 
 [node name="PauseOverlay" type="TextureRect" parent="PauseMenu"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("18_u6skp")
 texture = ExtResource("8_cr0me")
 
 [node name="Quit" type="Button" parent="PauseMenu"]
@@ -69,7 +64,6 @@ offset_top = 148.0
 offset_right = 741.0
 offset_bottom = 204.0
 tooltip_text = "You lose either way."
-theme = ExtResource("18_u6skp")
 theme_override_font_sizes/font_size = 42
 theme_override_icons/icon = ExtResource("10_8hfkb")
 text = "QUIT"
@@ -80,7 +74,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_top = 45.0
 offset_bottom = 45.0
-theme = ExtResource("18_u6skp")
 script = ExtResource("10_864yn")
 
 [node name="WaveIndicator" type="Label" parent="HUD"]
@@ -117,7 +110,6 @@ offset_bottom = 97.0
 texture = ExtResource("7_73ejk")
 
 [node name="DeathScreen" type="Control" parent="HUD"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -174,7 +166,6 @@ theme_override_icons/icon = ExtResource("10_8hfkb")
 text = "QUIT"
 
 [node name="PickDebuff" type="Control" parent="HUD"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -223,7 +214,6 @@ theme_override_font_sizes/font_size = 28
 theme_override_icons/icon = ExtResource("6_ls32b")
 
 [node name="WinScreen" type="Control" parent="HUD"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -275,16 +265,6 @@ text = "NEXT WAVE"
 [node name="Enemy" parent="." instance=ExtResource("17_anylg")]
 process_mode = 1
 position = Vector2(166, 343)
-
-[node name="Tutorial" type="Label" parent="."]
-offset_top = 572.0
-offset_right = 1163.0
-offset_bottom = 649.0
-theme = ExtResource("18_u6skp")
-theme_override_font_sizes/font_size = 32
-text = "[WASD] OR [ARROW KEYS] TO MOVE
-"
-script = ExtResource("19_gg7ke")
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]

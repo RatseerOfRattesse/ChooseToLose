@@ -11,27 +11,26 @@ var StartText = ["THE YEAR IS 2050.",
 var temp = 0
 
 func _ready():
-	type(StartText)
+	start()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_text_submit"):
 		temp += 1
 
-func type(array):
+func start():
 	visible_characters = 0
-	for line in array.size():
+	for line in 4:
 		visible_characters = 0
-		text = array[line]
-		for character in array[line].length():
+		text = StartText[line]
+		for character in StartText[line].length():
 			if temp == 0:
 				visible_characters += 1
 				await get_tree().create_timer(0.1).timeout
 				printedchars += 1
 		temp = 0
-		if printedchars == array[line].length():
+		if printedchars == StartText[line].length():
 			await get_tree().create_timer(2).timeout
 	text = ""
 	done = true
 	await get_tree().create_timer(2).timeout
-	temp = 0
 	generic.hide()

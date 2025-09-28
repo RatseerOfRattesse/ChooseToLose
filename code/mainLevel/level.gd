@@ -4,10 +4,10 @@ var ingame = false
 @onready var startButton = get_node('../../MainMenu/Button')
 @onready var health3 = get_node('HUD/Health3')
 @onready var hud = get_node('HUD')
-@onready var tutorial = get_node('Tutorial')
 @export var wave = 0
 var enemyScene = preload('res://code/entities/enemy.tscn')
 var enemyCount = 0
+var livingEnemies = 2
 var enemy
 
 func _ready():
@@ -17,14 +17,14 @@ func _ready():
 func on_start_pressed():
 	self.show()
 	ingame = true
-	if tutorial.done == true:
-		wave += 1
+	wave += 1
 
 func _process(_delta):
 	if enemyCount < 1:
 		for i in wave * 5:
 			spawnEnemy()
 			await get_tree().create_timer(0.5).timeout
+	if livingEnemies == -1:
 		hud.win()
 		enemyCount = 0
 		livingEnemies = 1

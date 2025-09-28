@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://doiqq2ujfn8yl"]
+[gd_scene load_steps=6 format=3 uid="uid://doiqq2ujfn8yl"]
 
 [ext_resource type="Texture2D" uid="uid://ck0is27d2gq41" path="res://assets/level/generic.png" id="1_il40e"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_wp11a"]
 [ext_resource type="FontFile" uid="uid://co587xvk0v3qi" path="res://assets/font/CourierPrime-Regular.ttf" id="3_mtk6w"]
-[ext_resource type="Theme" uid="uid://bom8e7tjcko6t" path="res://assets/theme/theme.tres" id="3_yprr6"]
 [ext_resource type="Script" uid="uid://r00i6d70of5x" path="res://code/Background/start_text.gd" id="4_a5m2w"]
 [ext_resource type="Script" uid="uid://cajmwvajq500n" path="res://code/Background/skip_prompt.gd" id="5_tadg0"]
 
@@ -23,7 +22,6 @@ custom_minimum_size = Vector2(581, 324)
 offset_left = 1.0
 offset_right = 1154.0
 offset_bottom = 649.0
-theme = ExtResource("3_yprr6")
 theme_override_fonts/font = ExtResource("3_mtk6w")
 theme_override_font_sizes/font_size = 32
 text = "MIRACULOUSLY, THE APOCALYPSE HASN'T HAPPENED YET."
@@ -34,7 +32,6 @@ script = ExtResource("4_a5m2w")
 [node name="SkipPrompt" type="Label" parent="."]
 offset_right = 1153.0
 offset_bottom = 474.0
-theme = ExtResource("3_yprr6")
 theme_override_fonts/font = ExtResource("3_mtk6w")
 theme_override_font_sizes/font_size = 25
 text = "Press [ENTER] if no attention span."
