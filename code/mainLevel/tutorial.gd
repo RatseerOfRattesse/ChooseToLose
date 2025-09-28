@@ -1,16 +1,23 @@
 extends Label
 
 var done = false
-@onready var generic = get_node('../Generic')
+@onready var startButton = get_node('../../../MainMenu/Button')
+@onready var level = get_node('../../Level')
 var printedchars = 0
-var StartText = ["THE YEAR IS 2050.", 
-"MIRACULOUSLY, THE APOCALYPSE HASN'T HAPPENED YET.", 
-"CORPORATIONS HAVE CONTINUED TO INSINUATE THEMSELVES \n INTO ALL ASPECTS OF REALITY.", 
-"YOUR DREAMS ARE NEXT."]
+var StartText = ["", 
+"PRESS [ENTER] FOR NEXT LINE", 
+"[WASD] OR [ARROW KEYS] TO MOVE", 
+"[LEFT CLICK] TO SHOOT",
+"DEFEND YOUR BRAIN FROM THE NEW CUTTING-EDGE DREAM ADS \n(PATENT PENDING)",
+"LOSE ALL 3 LIVES, YOU WILL BE UNDER CORPORATE INFLUENCE."]
 
 var temp = 0
 
 func _ready():
+	if startButton:
+		startButton.pressed.connect(on_start_pressed)
+
+func on_start_pressed():
 	type(StartText)
 
 func _process(_delta):
@@ -33,4 +40,4 @@ func type(array):
 	text = ""
 	done = true
 	await get_tree().create_timer(2).timeout
-	generic.hide()
+	level.wave += 1

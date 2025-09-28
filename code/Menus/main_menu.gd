@@ -17,3 +17,7 @@ func _on_options_pressed() -> void:
 	
 func on_back_pressed():
 	self.show()
+
+
+func _on_button_pressed() -> void:
+	self.hide()

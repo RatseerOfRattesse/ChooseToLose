@@ -65,4 +65,5 @@ theme_override_font_sizes/font_size = 42
 theme_override_icons/icon = ExtResource("7_s5wdh")
 text = "QUIT"
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=20 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://2jy8wbeamjjm" path="res://code/mainLevel/pick_debuff.gd" id="15_muymf"]
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
+[ext_resource type="Script" uid="uid://cxal2ot00kd1f" path="res://code/mainLevel/tutorial.gd" id="18_unoly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -265,6 +266,14 @@ text = "NEXT WAVE"
 [node name="Enemy" parent="." instance=ExtResource("17_anylg")]
 process_mode = 1
 position = Vector2(166, 343)
+
+[node name="Tutorial" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 561.0
+offset_right = 1162.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 32
+script = ExtResource("18_unoly")
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
