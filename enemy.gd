@@ -11,25 +11,32 @@ var scaleFactor = 1
 
 var rotation_direction = 0
 
+func _ready():
+	print(level.livingEnemies)
+
 func _physics_process(delta):
 	velocity = transform.x * -1 * speed
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
 
 func _process(_delta):
+	print(level.livingEnemies)
 	success()
-
-	print(level)
 	if enemyHealth < 1:
 		queue_free()
-		level.livingEnemies -= 1
+		if level.livingEnemies == 3:
+			level.livingEnemies -= 3
+		else:
+			level.livingEnemies -= 1
 
 func success():
-	if $VisibleOnScreenNotifier2D.is_on_screen():
+	#if $VisibleOnScreenNotifier2D.is_on_screen():
+	if position.x > 0:
 		pass
 	else:
 		queue_free()
 		killThySelf.damage()
+		level.livingEnemies -= 1
 		
 func takeDamage():
 	enemyHealth -= 1

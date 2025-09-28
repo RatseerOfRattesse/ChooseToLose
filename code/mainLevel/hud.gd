@@ -1,6 +1,6 @@
 extends Control
 
-@export var health = 3
+@export var health = 4
 @onready var health1 = get_node('Health1')
 @onready var health2 = get_node('Health2')
 @onready var health3 = get_node('Health3')
@@ -31,6 +31,10 @@ func _process(_delta):
 		health3.hide()
 		health2.hide()
 		health1.show()
+	elif health == 4:
+		health1.hide()
+		health2.hide()
+		health3.show()
 	else:
 		die()
 	

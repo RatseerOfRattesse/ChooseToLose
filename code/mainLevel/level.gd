@@ -7,7 +7,7 @@ var ingame = false
 @export var wave = 0
 var enemyScene = preload('res://code/entities/enemy.tscn')
 var enemyCount = 0
-var livingEnemies = 0
+var livingEnemies = 2
 
 func _ready():
 	if startButton:
@@ -19,17 +19,19 @@ func on_start_pressed():
 	wave += 1
 
 func _process(_delta):
-	if enemyCount < wave * 5:
-		spawnEnemy()
-		await get_tree().create_timer(0.5).timeout
-	if livingEnemies == 0:
+	if enemyCount < 1:
+		for i in wave * 5:
+			spawnEnemy()
+			await get_tree().create_timer(0.5).timeout
+	if livingEnemies == -1:
 		hud.win()
-		livingEnemies = 0
+		enemyCount = 0
+		livingEnemies = 1
 
 func spawnEnemy():
 	var enemy = enemyScene.instantiate()
 	add_child(enemy)
-	enemy.position = Vector2(1162, randi_range(1,648))
+	enemy.position = Vector2(1000, randi_range(40,600))
 	enemyCount += 1
 	livingEnemies += 1
 

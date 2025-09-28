@@ -17,7 +17,6 @@ func _physics_process(_delta):
 func _process(_delta):
 	if Input.is_action_just_pressed("shoot"):
 		spawn_bullet()
-		print("spawned")
 		
 	if position.x > 1152:
 		position.x -= 10
