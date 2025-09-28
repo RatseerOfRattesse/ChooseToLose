@@ -43,8 +43,6 @@ script = ExtResource("5_alqkf")
 [node name="Sprite2D" type="Sprite2D" parent="player2"]
 texture = ExtResource("6_ls32b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
-
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
@@ -112,7 +110,6 @@ offset_bottom = 97.0
 texture = ExtResource("7_73ejk")
 
 [node name="DeathScreen" type="Control" parent="HUD"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -217,7 +214,6 @@ theme_override_font_sizes/font_size = 28
 theme_override_icons/icon = ExtResource("6_ls32b")
 
 [node name="WinScreen" type="Control" parent="HUD"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

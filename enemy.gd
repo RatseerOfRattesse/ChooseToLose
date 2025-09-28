@@ -32,7 +32,6 @@ func _process(_delta):
 			level.livingEnemies -= 1
 		
 func success():
-	#if $VisibleOnScreenNotifier2D.is_on_screen():
 	if position.x > 0:
 		pass
 	else:

@@ -33,4 +33,3 @@ func _process(_delta):
 func spawn_bullet():
 	var bullet = bulletScene.instantiate()
 	add_child(bullet)
-	#bullet.global_position = self.position
