@@ -6,7 +6,6 @@ var ingame = false
 @onready var hud = get_node('HUD')
 @onready var tutorial = get_node('Tutorial')
 @export var wave = 0
-var livingEnemies = 0
 var enemyScene = preload('res://code/entities/enemy.tscn')
 var enemyCount = 0
 var enemy
