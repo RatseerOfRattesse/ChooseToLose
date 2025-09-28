@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-@onready var collision = get_node('res://code/entities/Bullet.tscn')
 var health = 3
 var scaleFactor = 1
 @export var speed = 150
 @export var rotation_speed = 5
-@onready var waves = get_node('res://code/mainLevel/level.gd')
+@onready var level = get_node('../../Level')
 
 var rotation_direction = 0
 
@@ -14,10 +13,12 @@ func _physics_process(delta):
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	success()
+	print(level)
 	if health < 1:
 		queue_free()
+		level.livingEnemies -= 1
 
 func success():
 	if $VisibleOnScreenNotifier2D.is_on_screen():
