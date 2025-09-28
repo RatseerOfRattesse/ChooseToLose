@@ -14,6 +14,7 @@ var enemyScene = preload('res://code/entities/enemy.tscn')
 var enemyCount = 0
 var enemy
 var livingEnemies = 0
+var enemySpeed = 150.0
 
 func _ready():
 	if startButton:
@@ -33,15 +34,16 @@ func _process(_delta):
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true:
 		hud.win()
 		print("confirm")
-	print("enemiesLoaded: " + str(enemiesLoaded))
-	print("ingame: " + str(ingame))
-	print("livingEnemies: " + str(livingEnemies))
-	print("perWaveBuff: " + str(perWaveBuff))
+	#print("enemiesLoaded: " + str(enemiesLoaded))
+	#print("ingame: " + str(ingame))
+	#print("livingEnemies: " + str(livingEnemies))
+	#print("perWaveBuff: " + str(perWaveBuff))
 
 func spawnEnemy():
 	enemy = enemyScene.instantiate()
 	add_child(enemy)
 	enemy.position = Vector2(randi_range(1100, 2100), randi_range(40,600))
+	enemy.enemyspeed = enemySpeed
 	enemyCount += 1
 	livingEnemies = enemyCount
 
@@ -57,3 +59,8 @@ func _on_debuff_2_pressed() -> void:
 	wave += 1
 	ingame = true
 	$HUD/PickDebuff.hide()
+
+
+func _on_pick_debuff_enemy_speed_boost() -> void:
+	print("boost")
+	enemySpeed += (enemySpeed/100)*10

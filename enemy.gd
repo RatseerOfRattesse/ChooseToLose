@@ -10,13 +10,6 @@ var scaleFactor = 1
 
 var rotation_direction = 0
 
-func _ready():
-	if pickDebuff:
-		pickDebuff.enemySpeedBoost.connect(enemySpeedBoost)
-
-func enemySpeedBoost():
-	enemyspeed += (enemyspeed/100) * 10
-
 func _physics_process(delta):
 	velocity = transform.x * -1 * enemyspeed
 	rotation += rotation_direction * rotation_enemyspeed * delta
@@ -38,3 +31,4 @@ func takeDamage():
 	
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	enemyHealth -= 1
+	

@@ -285,6 +285,7 @@ script = ExtResource("18_unoly")
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
 [connection signal="died" from="HUD" to="HUD/DeathScreen/Label" method="_on_hud_died"]
 [connection signal="nextWave" from="HUD" to="PauseMenu" method="_on_hud_next_wave"]
+[connection signal="enemySpeedBoost" from="HUD/PickDebuff" to="." method="_on_pick_debuff_enemy_speed_boost"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="." method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="HUD/PickDebuff" method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff2" to="." method="_on_debuff_2_pressed"]
