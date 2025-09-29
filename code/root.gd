@@ -9,6 +9,7 @@ extends Node
 @onready var deathScreen = get_node('MainMenu/Level/HUD/DeathScreen')
 @onready var winScreen = get_node('MainMenu/Level/HUD/WinScreen')
 @onready var quitButton = get_node('MainMenu/Quit')
+@onready var catjam = get_node('MainMenu/Level/Catjam')
 
 func _ready():
 	#LOGGING
@@ -24,6 +25,8 @@ func _ready():
 	deathScreen.hide()
 	
 	winScreen.hide()
+	
+	catjam.hide()
 	
 	if quitButton:
 		quitButton.pressed.connect(on_quit_pressed)

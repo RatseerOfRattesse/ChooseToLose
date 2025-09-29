@@ -33,7 +33,7 @@ func _process(_delta):
 		enemiesLoaded = true
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true:
 		hud.win()
-		print("confirm")
+		#print("win")
 	#print("enemiesLoaded: " + str(enemiesLoaded))
 	#print("ingame: " + str(ingame))
 	#print("livingEnemies: " + str(livingEnemies))
@@ -62,5 +62,5 @@ func _on_debuff_2_pressed() -> void:
 
 
 func _on_pick_debuff_enemy_speed_boost() -> void:
-	print("boost")
+	#print("boost")
 	enemySpeed += (enemySpeed/100)*10

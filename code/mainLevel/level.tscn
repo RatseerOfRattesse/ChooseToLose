@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=181 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -20,10 +20,650 @@
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
 [ext_resource type="Script" uid="uid://cxal2ot00kd1f" path="res://code/mainLevel/tutorial.gd" id="18_unoly"]
+[ext_resource type="Texture2D" uid="uid://8omg30h5y75m" path="res://assets/game/catjam/frame_000_delay-0.03s.png" id="21_xf8er"]
+[ext_resource type="Texture2D" uid="uid://d3v3xwh6xqvp5" path="res://assets/game/catjam/frame_001_delay-0.03s.png" id="22_72qr4"]
+[ext_resource type="Texture2D" uid="uid://b8b2e5pxjj24d" path="res://assets/game/catjam/frame_002_delay-0.03s.png" id="23_xn560"]
+[ext_resource type="Texture2D" uid="uid://wgi5olwc066p" path="res://assets/game/catjam/frame_003_delay-0.03s.png" id="24_nm6w8"]
+[ext_resource type="Texture2D" uid="uid://bomx623j1vu2t" path="res://assets/game/catjam/frame_004_delay-0.03s.png" id="25_j02uk"]
+[ext_resource type="Texture2D" uid="uid://ba3qjqr40l13p" path="res://assets/game/catjam/frame_005_delay-0.03s.png" id="26_4olpc"]
+[ext_resource type="Texture2D" uid="uid://cau0xj13ohjjs" path="res://assets/game/catjam/frame_006_delay-0.03s.png" id="27_6m8ss"]
+[ext_resource type="Texture2D" uid="uid://dfiwm1djy83nc" path="res://assets/game/catjam/frame_007_delay-0.03s.png" id="28_o8hgo"]
+[ext_resource type="Texture2D" uid="uid://cqhgogbw4eato" path="res://assets/game/catjam/frame_008_delay-0.03s.png" id="29_07ih0"]
+[ext_resource type="Texture2D" uid="uid://dklmtsiagv7c7" path="res://assets/game/catjam/frame_009_delay-0.03s.png" id="30_yopv7"]
+[ext_resource type="Texture2D" uid="uid://dl8e1cmdg01dl" path="res://assets/game/catjam/frame_010_delay-0.03s.png" id="31_h17hp"]
+[ext_resource type="Texture2D" uid="uid://bgvvwi1d6ci0s" path="res://assets/game/catjam/frame_011_delay-0.03s.png" id="32_ep36a"]
+[ext_resource type="Texture2D" uid="uid://bi73k3k0ea1ek" path="res://assets/game/catjam/frame_012_delay-0.03s.png" id="33_wrqaj"]
+[ext_resource type="Texture2D" uid="uid://bo8sos4tgetxc" path="res://assets/game/catjam/frame_013_delay-0.03s.png" id="34_1hhaw"]
+[ext_resource type="Texture2D" uid="uid://b3unf5exbglwb" path="res://assets/game/catjam/frame_014_delay-0.03s.png" id="35_m6whb"]
+[ext_resource type="Texture2D" uid="uid://gs4rvukjlhj2" path="res://assets/game/catjam/frame_015_delay-0.03s.png" id="36_tp4e8"]
+[ext_resource type="Texture2D" uid="uid://055knd6b3gvi" path="res://assets/game/catjam/frame_016_delay-0.03s.png" id="37_gyvmf"]
+[ext_resource type="Texture2D" uid="uid://byt74aap6hnwd" path="res://assets/game/catjam/frame_017_delay-0.03s.png" id="38_no8x8"]
+[ext_resource type="Texture2D" uid="uid://x62mhuuutk76" path="res://assets/game/catjam/frame_018_delay-0.03s.png" id="39_g0xyt"]
+[ext_resource type="Texture2D" uid="uid://cv4jw2dq0v36x" path="res://assets/game/catjam/frame_019_delay-0.03s.png" id="40_y7ivm"]
+[ext_resource type="Texture2D" uid="uid://bcpbvej3h3uhf" path="res://assets/game/catjam/frame_020_delay-0.03s.png" id="41_wvnj1"]
+[ext_resource type="Texture2D" uid="uid://cjnff8tpru35v" path="res://assets/game/catjam/frame_021_delay-0.03s.png" id="42_gop0q"]
+[ext_resource type="Texture2D" uid="uid://cbji4q40yskfi" path="res://assets/game/catjam/frame_022_delay-0.03s.png" id="43_eayi1"]
+[ext_resource type="Texture2D" uid="uid://i1n4qq7wy646" path="res://assets/game/catjam/frame_023_delay-0.03s.png" id="44_42rhj"]
+[ext_resource type="Texture2D" uid="uid://brgdm5c6v47o3" path="res://assets/game/catjam/frame_024_delay-0.03s.png" id="45_ogqra"]
+[ext_resource type="Texture2D" uid="uid://dcrcyxbs4jvev" path="res://assets/game/catjam/frame_025_delay-0.03s.png" id="46_iwy4p"]
+[ext_resource type="Texture2D" uid="uid://bl6om1ja8uo80" path="res://assets/game/catjam/frame_026_delay-0.03s.png" id="47_0mqrp"]
+[ext_resource type="Texture2D" uid="uid://bi5k34rci5b" path="res://assets/game/catjam/frame_027_delay-0.03s.png" id="48_ggudo"]
+[ext_resource type="Texture2D" uid="uid://rguumieqlvv8" path="res://assets/game/catjam/frame_028_delay-0.03s.png" id="49_qhuni"]
+[ext_resource type="Texture2D" uid="uid://dj2k8kmufyv4t" path="res://assets/game/catjam/frame_029_delay-0.03s.png" id="50_k04ec"]
+[ext_resource type="Texture2D" uid="uid://dl0fdoga3wij2" path="res://assets/game/catjam/frame_030_delay-0.03s.png" id="51_74v2y"]
+[ext_resource type="Texture2D" uid="uid://calc6hlbewd26" path="res://assets/game/catjam/frame_031_delay-0.03s.png" id="52_cc6lp"]
+[ext_resource type="Texture2D" uid="uid://d32ks1rs2epsn" path="res://assets/game/catjam/frame_032_delay-0.03s.png" id="53_4cs0g"]
+[ext_resource type="Texture2D" uid="uid://kcqtyhwcdjs4" path="res://assets/game/catjam/frame_033_delay-0.03s.png" id="54_qfgi8"]
+[ext_resource type="Texture2D" uid="uid://svnj83kyqwh" path="res://assets/game/catjam/frame_034_delay-0.03s.png" id="55_p0tqc"]
+[ext_resource type="Texture2D" uid="uid://cklwsvf44cur3" path="res://assets/game/catjam/frame_035_delay-0.03s.png" id="56_i84xq"]
+[ext_resource type="Texture2D" uid="uid://chbojmgsuqt5r" path="res://assets/game/catjam/frame_036_delay-0.03s.png" id="57_7nhc5"]
+[ext_resource type="Texture2D" uid="uid://bx714nvmj0dcg" path="res://assets/game/catjam/frame_037_delay-0.03s.png" id="58_4jsmt"]
+[ext_resource type="Texture2D" uid="uid://cthpnuhbfxe45" path="res://assets/game/catjam/frame_038_delay-0.03s.png" id="59_303ej"]
+[ext_resource type="Texture2D" uid="uid://bmswcuqodmv4" path="res://assets/game/catjam/frame_039_delay-0.03s.png" id="60_mgyur"]
+[ext_resource type="Texture2D" uid="uid://8vf25o081yja" path="res://assets/game/catjam/frame_040_delay-0.03s.png" id="61_csawe"]
+[ext_resource type="Texture2D" uid="uid://dfpat26r7n25g" path="res://assets/game/catjam/frame_041_delay-0.03s.png" id="62_d4bw7"]
+[ext_resource type="Texture2D" uid="uid://c5w0q3jybxxw" path="res://assets/game/catjam/frame_042_delay-0.03s.png" id="63_jxafu"]
+[ext_resource type="Texture2D" uid="uid://dhktic3f26bpl" path="res://assets/game/catjam/frame_043_delay-0.03s.png" id="64_bxf2q"]
+[ext_resource type="Texture2D" uid="uid://doxj2gd1vrsuh" path="res://assets/game/catjam/frame_044_delay-0.03s.png" id="65_dbta8"]
+[ext_resource type="Texture2D" uid="uid://72o5rfk55sf1" path="res://assets/game/catjam/frame_045_delay-0.03s.png" id="66_orbkr"]
+[ext_resource type="Texture2D" uid="uid://d1dhp7nqgdd03" path="res://assets/game/catjam/frame_046_delay-0.03s.png" id="67_s3ycd"]
+[ext_resource type="Texture2D" uid="uid://cgptlssjhkr1e" path="res://assets/game/catjam/frame_047_delay-0.03s.png" id="68_qddak"]
+[ext_resource type="Texture2D" uid="uid://b6nlkhc874tkn" path="res://assets/game/catjam/frame_048_delay-0.03s.png" id="69_e4fgr"]
+[ext_resource type="Texture2D" uid="uid://bur3y80n4jpwd" path="res://assets/game/catjam/frame_049_delay-0.03s.png" id="70_8w3vw"]
+[ext_resource type="Texture2D" uid="uid://vdxcf5hv452b" path="res://assets/game/catjam/frame_050_delay-0.03s.png" id="71_1ogam"]
+[ext_resource type="Texture2D" uid="uid://biususi6j1jfg" path="res://assets/game/catjam/frame_051_delay-0.03s.png" id="72_4yupj"]
+[ext_resource type="Texture2D" uid="uid://dp1u2p4rfbxt6" path="res://assets/game/catjam/frame_052_delay-0.03s.png" id="73_apk7l"]
+[ext_resource type="Texture2D" uid="uid://d2glspblqqd45" path="res://assets/game/catjam/frame_053_delay-0.03s.png" id="74_p2umh"]
+[ext_resource type="Texture2D" uid="uid://mmeum8n37g7i" path="res://assets/game/catjam/frame_054_delay-0.03s.png" id="75_srrmo"]
+[ext_resource type="Texture2D" uid="uid://c3ublwbmnc1m4" path="res://assets/game/catjam/frame_055_delay-0.03s.png" id="76_s3dxp"]
+[ext_resource type="Texture2D" uid="uid://b3wh42pkmesbn" path="res://assets/game/catjam/frame_056_delay-0.03s.png" id="77_q28h6"]
+[ext_resource type="Texture2D" uid="uid://ctawvjv6ewqq6" path="res://assets/game/catjam/frame_057_delay-0.03s.png" id="78_0gp6i"]
+[ext_resource type="Texture2D" uid="uid://dd0n82lovlvs6" path="res://assets/game/catjam/frame_058_delay-0.03s.png" id="79_hb3nk"]
+[ext_resource type="Texture2D" uid="uid://ce0pjmsen076a" path="res://assets/game/catjam/frame_059_delay-0.03s.png" id="80_icync"]
+[ext_resource type="Texture2D" uid="uid://yf7fra0uyk6j" path="res://assets/game/catjam/frame_060_delay-0.03s.png" id="81_eukva"]
+[ext_resource type="Texture2D" uid="uid://jocjsekqkwdy" path="res://assets/game/catjam/frame_061_delay-0.03s.png" id="82_mlynn"]
+[ext_resource type="Texture2D" uid="uid://b85qgv1oendko" path="res://assets/game/catjam/frame_062_delay-0.03s.png" id="83_juq28"]
+[ext_resource type="Texture2D" uid="uid://nm32oe064301" path="res://assets/game/catjam/frame_063_delay-0.03s.png" id="84_eu5fl"]
+[ext_resource type="Texture2D" uid="uid://b80m1bj0508qi" path="res://assets/game/catjam/frame_064_delay-0.03s.png" id="85_opwbn"]
+[ext_resource type="Texture2D" uid="uid://b0bei0jqxjm3s" path="res://assets/game/catjam/frame_065_delay-0.03s.png" id="86_jnit5"]
+[ext_resource type="Texture2D" uid="uid://dmyblcfj5ios8" path="res://assets/game/catjam/frame_066_delay-0.03s.png" id="87_j14dh"]
+[ext_resource type="Texture2D" uid="uid://cjk0j8w0kaqim" path="res://assets/game/catjam/frame_067_delay-0.03s.png" id="88_mterr"]
+[ext_resource type="Texture2D" uid="uid://bmtf7ogu0umhc" path="res://assets/game/catjam/frame_068_delay-0.03s.png" id="89_kik5k"]
+[ext_resource type="Texture2D" uid="uid://nd23llp6oj5c" path="res://assets/game/catjam/frame_069_delay-0.03s.png" id="90_f0577"]
+[ext_resource type="Texture2D" uid="uid://du487e8eulcn" path="res://assets/game/catjam/frame_070_delay-0.03s.png" id="91_dtvko"]
+[ext_resource type="Texture2D" uid="uid://bv7ptld67dwda" path="res://assets/game/catjam/frame_071_delay-0.03s.png" id="92_utpq5"]
+[ext_resource type="Texture2D" uid="uid://c6liqpnaby3b8" path="res://assets/game/catjam/frame_072_delay-0.03s.png" id="93_q7cdk"]
+[ext_resource type="Texture2D" uid="uid://cpr5atseunwuh" path="res://assets/game/catjam/frame_073_delay-0.03s.png" id="94_ggq5l"]
+[ext_resource type="Texture2D" uid="uid://mo4tmx8jx3a0" path="res://assets/game/catjam/frame_074_delay-0.03s.png" id="95_kfvwk"]
+[ext_resource type="Texture2D" uid="uid://buiqny75x12ys" path="res://assets/game/catjam/frame_075_delay-0.03s.png" id="96_s5uh1"]
+[ext_resource type="Texture2D" uid="uid://b5uumeyewxao1" path="res://assets/game/catjam/frame_076_delay-0.03s.png" id="97_jynid"]
+[ext_resource type="Texture2D" uid="uid://b2qt43pnju8kq" path="res://assets/game/catjam/frame_077_delay-0.03s.png" id="98_ef2bp"]
+[ext_resource type="Texture2D" uid="uid://den8lvwactp1x" path="res://assets/game/catjam/frame_078_delay-0.03s.png" id="99_mdg22"]
+[ext_resource type="Texture2D" uid="uid://glrsn7ggm2vc" path="res://assets/game/catjam/frame_079_delay-0.03s.png" id="100_10jsl"]
+[ext_resource type="Texture2D" uid="uid://d2ccbkl12piu8" path="res://assets/game/catjam/frame_080_delay-0.03s.png" id="101_11n7g"]
+[ext_resource type="Texture2D" uid="uid://oxws46y0e3lg" path="res://assets/game/catjam/frame_081_delay-0.03s.png" id="102_xy6un"]
+[ext_resource type="Texture2D" uid="uid://c3nxpbvvd8l7y" path="res://assets/game/catjam/frame_082_delay-0.03s.png" id="103_5fg57"]
+[ext_resource type="Texture2D" uid="uid://cy4l4opdn4jg0" path="res://assets/game/catjam/frame_083_delay-0.03s.png" id="104_v77mf"]
+[ext_resource type="Texture2D" uid="uid://iyji41lqgh65" path="res://assets/game/catjam/frame_084_delay-0.03s.png" id="105_w6pmm"]
+[ext_resource type="Texture2D" uid="uid://1h8igp78l7a6" path="res://assets/game/catjam/frame_085_delay-0.03s.png" id="106_vyfbh"]
+[ext_resource type="Texture2D" uid="uid://d1epguloalert" path="res://assets/game/catjam/frame_086_delay-0.03s.png" id="107_c3ame"]
+[ext_resource type="Texture2D" uid="uid://cx3v3ptns4t6t" path="res://assets/game/catjam/frame_087_delay-0.03s.png" id="108_5xfko"]
+[ext_resource type="Texture2D" uid="uid://bajby5xdsjkew" path="res://assets/game/catjam/frame_088_delay-0.03s.png" id="109_y7els"]
+[ext_resource type="Texture2D" uid="uid://7lq55vmnnwru" path="res://assets/game/catjam/frame_089_delay-0.03s.png" id="110_csqxq"]
+[ext_resource type="Texture2D" uid="uid://cmmroabkstlc2" path="res://assets/game/catjam/frame_090_delay-0.03s.png" id="111_72b6o"]
+[ext_resource type="Texture2D" uid="uid://dtu8xvc2ruprq" path="res://assets/game/catjam/frame_091_delay-0.03s.png" id="112_8jyvs"]
+[ext_resource type="Texture2D" uid="uid://sselfelmhq3l" path="res://assets/game/catjam/frame_092_delay-0.03s.png" id="113_mw5tr"]
+[ext_resource type="Texture2D" uid="uid://dcko3io6r8jcg" path="res://assets/game/catjam/frame_093_delay-0.03s.png" id="114_7fngv"]
+[ext_resource type="Texture2D" uid="uid://bqf4b8g8xpimp" path="res://assets/game/catjam/frame_094_delay-0.03s.png" id="115_turr3"]
+[ext_resource type="Texture2D" uid="uid://hbkkkhan1rd4" path="res://assets/game/catjam/frame_095_delay-0.03s.png" id="116_iup4y"]
+[ext_resource type="Texture2D" uid="uid://drqcns46iody5" path="res://assets/game/catjam/frame_096_delay-0.03s.png" id="117_acr1o"]
+[ext_resource type="Texture2D" uid="uid://co1c5mbm87n8s" path="res://assets/game/catjam/frame_097_delay-0.03s.png" id="118_fsygy"]
+[ext_resource type="Texture2D" uid="uid://dv6y5a65ptr2i" path="res://assets/game/catjam/frame_098_delay-0.03s.png" id="119_f7y0h"]
+[ext_resource type="Texture2D" uid="uid://dw8mgh7726blt" path="res://assets/game/catjam/frame_099_delay-0.03s.png" id="120_7fm2h"]
+[ext_resource type="Texture2D" uid="uid://c0rnhw7i5w61b" path="res://assets/game/catjam/frame_100_delay-0.03s.png" id="121_vsvgl"]
+[ext_resource type="Texture2D" uid="uid://bdj4ale57iea3" path="res://assets/game/catjam/frame_101_delay-0.03s.png" id="122_lrupd"]
+[ext_resource type="Texture2D" uid="uid://ddkvtm1pv5nj2" path="res://assets/game/catjam/frame_102_delay-0.03s.png" id="123_5vemh"]
+[ext_resource type="Texture2D" uid="uid://bnkaqeuhydruf" path="res://assets/game/catjam/frame_103_delay-0.03s.png" id="124_58d18"]
+[ext_resource type="Texture2D" uid="uid://bnybncg4xc3kx" path="res://assets/game/catjam/frame_104_delay-0.03s.png" id="125_188f3"]
+[ext_resource type="Texture2D" uid="uid://oj7bix4fuj7d" path="res://assets/game/catjam/frame_105_delay-0.03s.png" id="126_sqgy5"]
+[ext_resource type="Texture2D" uid="uid://6o0snw6fb1g3" path="res://assets/game/catjam/frame_106_delay-0.03s.png" id="127_en3rw"]
+[ext_resource type="Texture2D" uid="uid://dews6elo0k0e0" path="res://assets/game/catjam/frame_107_delay-0.03s.png" id="128_mhdro"]
+[ext_resource type="Texture2D" uid="uid://dr8f1ck3e41fo" path="res://assets/game/catjam/frame_108_delay-0.03s.png" id="129_2b3st"]
+[ext_resource type="Texture2D" uid="uid://co07dvdlfiym5" path="res://assets/game/catjam/frame_109_delay-0.03s.png" id="130_u62ug"]
+[ext_resource type="Texture2D" uid="uid://c4ia1n3f33j1" path="res://assets/game/catjam/frame_110_delay-0.03s.png" id="131_8o0p6"]
+[ext_resource type="Texture2D" uid="uid://srvkd7rfnsux" path="res://assets/game/catjam/frame_111_delay-0.03s.png" id="132_nvlqj"]
+[ext_resource type="Texture2D" uid="uid://cyeseoll0y5jq" path="res://assets/game/catjam/frame_112_delay-0.03s.png" id="133_qsi6e"]
+[ext_resource type="Texture2D" uid="uid://cxb6jx34hpn4f" path="res://assets/game/catjam/frame_113_delay-0.03s.png" id="134_hi8qx"]
+[ext_resource type="Texture2D" uid="uid://biro0tbylell1" path="res://assets/game/catjam/frame_114_delay-0.03s.png" id="135_074a3"]
+[ext_resource type="Texture2D" uid="uid://c6xbvy2klojp" path="res://assets/game/catjam/frame_115_delay-0.03s.png" id="136_pv8u0"]
+[ext_resource type="Texture2D" uid="uid://bnau373lkc40i" path="res://assets/game/catjam/frame_116_delay-0.03s.png" id="137_l7oqn"]
+[ext_resource type="Texture2D" uid="uid://d21mql42atd37" path="res://assets/game/catjam/frame_117_delay-0.03s.png" id="138_b4g4g"]
+[ext_resource type="Texture2D" uid="uid://bbsu3x33nw0od" path="res://assets/game/catjam/frame_118_delay-0.03s.png" id="139_bc3f5"]
+[ext_resource type="Texture2D" uid="uid://cwpwqd3cllevf" path="res://assets/game/catjam/frame_119_delay-0.03s.png" id="140_kb1q0"]
+[ext_resource type="Texture2D" uid="uid://b5wck0elhgh3w" path="res://assets/game/catjam/frame_120_delay-0.03s.png" id="141_v7sf0"]
+[ext_resource type="Texture2D" uid="uid://df5lo14en5jvj" path="res://assets/game/catjam/frame_121_delay-0.03s.png" id="142_0wxkn"]
+[ext_resource type="Texture2D" uid="uid://dqimb6cjdcff6" path="res://assets/game/catjam/frame_122_delay-0.03s.png" id="143_0cu1k"]
+[ext_resource type="Texture2D" uid="uid://dp318fax7nod7" path="res://assets/game/catjam/frame_123_delay-0.03s.png" id="144_qcuil"]
+[ext_resource type="Texture2D" uid="uid://1g2igufy3sp7" path="res://assets/game/catjam/frame_124_delay-0.03s.png" id="145_gxbgf"]
+[ext_resource type="Texture2D" uid="uid://cuvun6os1ksny" path="res://assets/game/catjam/frame_125_delay-0.03s.png" id="146_14wlv"]
+[ext_resource type="Texture2D" uid="uid://dbqhyaed40t6w" path="res://assets/game/catjam/frame_126_delay-0.03s.png" id="147_d0pb1"]
+[ext_resource type="Texture2D" uid="uid://d0ntq1or4gxly" path="res://assets/game/catjam/frame_127_delay-0.03s.png" id="148_b8on7"]
+[ext_resource type="Texture2D" uid="uid://bo8ff7xi2w65v" path="res://assets/game/catjam/frame_128_delay-0.03s.png" id="149_ochwn"]
+[ext_resource type="Texture2D" uid="uid://canho6l4w1248" path="res://assets/game/catjam/frame_129_delay-0.03s.png" id="150_ymfin"]
+[ext_resource type="Texture2D" uid="uid://clbfsfetg5cad" path="res://assets/game/catjam/frame_130_delay-0.03s.png" id="151_73ov2"]
+[ext_resource type="Texture2D" uid="uid://ktb1a0qitrai" path="res://assets/game/catjam/frame_131_delay-0.03s.png" id="152_eff2d"]
+[ext_resource type="Texture2D" uid="uid://dqkxawdwtmy6r" path="res://assets/game/catjam/frame_132_delay-0.03s.png" id="153_uncb3"]
+[ext_resource type="Texture2D" uid="uid://81bq1lo4dfgq" path="res://assets/game/catjam/frame_133_delay-0.03s.png" id="154_pbvto"]
+[ext_resource type="Texture2D" uid="uid://c36pxcfhsepcs" path="res://assets/game/catjam/frame_134_delay-0.03s.png" id="155_i45dx"]
+[ext_resource type="Texture2D" uid="uid://c6dnx34w81542" path="res://assets/game/catjam/frame_135_delay-0.03s.png" id="156_urvam"]
+[ext_resource type="Texture2D" uid="uid://bqwn7fxcyca65" path="res://assets/game/catjam/frame_136_delay-0.03s.png" id="157_2i2iw"]
+[ext_resource type="Texture2D" uid="uid://byfujgh2yitt5" path="res://assets/game/catjam/frame_137_delay-0.03s.png" id="158_b4wu7"]
+[ext_resource type="Texture2D" uid="uid://cs127vugkx7of" path="res://assets/game/catjam/frame_138_delay-0.03s.png" id="159_unf7b"]
+[ext_resource type="Texture2D" uid="uid://c6eohqhpxgopd" path="res://assets/game/catjam/frame_139_delay-0.03s.png" id="160_6ty6i"]
+[ext_resource type="Texture2D" uid="uid://dry628xau0rb0" path="res://assets/game/catjam/frame_140_delay-0.03s.png" id="161_pmugm"]
+[ext_resource type="Texture2D" uid="uid://deiy3aouara7l" path="res://assets/game/catjam/frame_141_delay-0.03s.png" id="162_cab64"]
+[ext_resource type="Texture2D" uid="uid://c24t1ovljio1f" path="res://assets/game/catjam/frame_142_delay-0.03s.png" id="163_f0q4c"]
+[ext_resource type="Texture2D" uid="uid://vujwkxteq0cg" path="res://assets/game/catjam/frame_143_delay-0.03s.png" id="164_byx6g"]
+[ext_resource type="Texture2D" uid="uid://bceqb66nx5pbs" path="res://assets/game/catjam/frame_144_delay-0.03s.png" id="165_vs6lj"]
+[ext_resource type="Texture2D" uid="uid://bx4pcden471hs" path="res://assets/game/catjam/frame_145_delay-0.03s.png" id="166_8dsj1"]
+[ext_resource type="Texture2D" uid="uid://bpah7vtr1opcd" path="res://assets/game/catjam/frame_146_delay-0.03s.png" id="167_cpj7h"]
+[ext_resource type="Texture2D" uid="uid://dm5fp4ggwpium" path="res://assets/game/catjam/frame_147_delay-0.03s.png" id="168_l5ey4"]
+[ext_resource type="Texture2D" uid="uid://u1xnuurk2mpd" path="res://assets/game/catjam/frame_148_delay-0.03s.png" id="169_dwcat"]
+[ext_resource type="Texture2D" uid="uid://cokjgu82cxi88" path="res://assets/game/catjam/frame_149_delay-0.03s.png" id="170_gtcv2"]
+[ext_resource type="Texture2D" uid="uid://buwsx4qqo3qxs" path="res://assets/game/catjam/frame_150_delay-0.03s.png" id="171_urrsg"]
+[ext_resource type="Texture2D" uid="uid://c82suyaf06gek" path="res://assets/game/catjam/frame_151_delay-0.03s.png" id="172_vgui1"]
+[ext_resource type="Texture2D" uid="uid://cdgb8ljgulh6x" path="res://assets/game/catjam/frame_152_delay-0.03s.png" id="173_ohcea"]
+[ext_resource type="Texture2D" uid="uid://cpvati0cgejp" path="res://assets/game/catjam/frame_153_delay-0.03s.png" id="174_33tjw"]
+[ext_resource type="Texture2D" uid="uid://rem54cjqecuq" path="res://assets/game/catjam/frame_154_delay-0.03s.png" id="175_b3ejy"]
+[ext_resource type="Texture2D" uid="uid://cid46e7sq7qij" path="res://assets/game/catjam/frame_155_delay-0.03s.png" id="176_mhw2q"]
+[ext_resource type="Texture2D" uid="uid://c5plr6xu1vbn" path="res://assets/game/catjam/frame_156_delay-0.03s.png" id="177_kwejg"]
+[ext_resource type="Texture2D" uid="uid://c0035m2wks1g7" path="res://assets/game/catjam/frame_157_delay-0.03s.png" id="178_st13c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
 shader_parameter/enabled = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vego0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_xf8er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_72qr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xn560")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_nm6w8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_j02uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4olpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6m8ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o8hgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_07ih0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_yopv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_h17hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ep36a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_wrqaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_1hhaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_m6whb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_tp4e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_gyvmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_no8x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_g0xyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_y7ivm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_wvnj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_gop0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_eayi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_42rhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_ogqra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_iwy4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_0mqrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ggudo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_qhuni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_k04ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_74v2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_cc6lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_4cs0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qfgi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_p0tqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_i84xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_7nhc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_4jsmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_303ej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_mgyur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_csawe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_d4bw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_jxafu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_bxf2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_dbta8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_orbkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_s3ycd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_qddak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_e4fgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_8w3vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_1ogam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_4yupj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_apk7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_p2umh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_srrmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_s3dxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_q28h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_0gp6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_hb3nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_icync")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_eukva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_mlynn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_juq28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_eu5fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_opwbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_jnit5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_j14dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_mterr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_kik5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_f0577")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_dtvko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_utpq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_q7cdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_ggq5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_kfvwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_s5uh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_jynid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_ef2bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_mdg22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_10jsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_11n7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_xy6un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_5fg57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_v77mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_w6pmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_vyfbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_c3ame")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_5xfko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_y7els")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_csqxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_72b6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_8jyvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_mw5tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_7fngv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_turr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_iup4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_acr1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_fsygy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_f7y0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_7fm2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_vsvgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_lrupd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_5vemh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_58d18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_188f3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_sqgy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_en3rw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_mhdro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_2b3st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_u62ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_8o0p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_nvlqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_qsi6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_hi8qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_074a3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_pv8u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_l7oqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_b4g4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_bc3f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_kb1q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_v7sf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_0wxkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_0cu1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_qcuil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_gxbgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_14wlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_d0pb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_b8on7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_ochwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_ymfin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_73ov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_eff2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_uncb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_pbvto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_i45dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_urvam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_2i2iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_b4wu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_unf7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_6ty6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_pmugm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_cab64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_f0q4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_byx6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_vs6lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_8dsj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_cpj7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_l5ey4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_dwcat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_gtcv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_urrsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_vgui1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_ohcea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_33tjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_b3ejy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_mhw2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_kwejg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_st13c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Level" type="Node2D"]
 process_mode = 1
@@ -50,6 +690,7 @@ texture = ExtResource("6_ls32b")
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
+top_level = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -280,6 +921,13 @@ offset_right = 1162.0
 offset_bottom = 648.0
 theme_override_font_sizes/font_size = 32
 script = ExtResource("18_unoly")
+
+[node name="Catjam" type="AnimatedSprite2D" parent="."]
+top_level = true
+position = Vector2(324.00003, 324)
+scale = Vector2(3.6, 3.6)
+sprite_frames = SubResource("SpriteFrames_vego0")
+frame_progress = 0.43026286
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
