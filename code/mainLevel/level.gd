@@ -7,6 +7,7 @@ extends Node2D
 @export var wave = 0
 @export var perWaveBuff = 0
 @export var enemyPerWave = wave * perWaveBuff
+@export var enemyScale = 1
 
 var ingame = false
 var enemiesLoaded = false
@@ -15,6 +16,9 @@ var enemyCount = 0
 var enemy
 var livingEnemies = 0
 var enemySpeed = 150.0
+
+func changeEnemyScale():
+	enemyScale -= 0.2 * enemyScale
 
 func _ready():
 	if startButton:
@@ -44,8 +48,10 @@ func spawnEnemy():
 	add_child(enemy)
 	enemy.position = Vector2(randi_range(1100, 2100), randi_range(40,600))
 	enemy.enemyspeed = enemySpeed
+	enemy.scale = Vector2(enemyScale, enemyScale)
 	enemyCount += 1
 	livingEnemies = enemyCount
+	
 
 func buffEnemyCount():
 	perWaveBuff += 1
