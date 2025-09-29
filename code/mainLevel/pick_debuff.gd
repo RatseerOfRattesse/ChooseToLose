@@ -7,7 +7,8 @@ extends Control
 const debuffDescription = ['Decrease movement speed by 20%', 
 'Increase enemy movement speed by 10%', 
 'Increase enemies per wave by one',
-'Cover half your screen with a cat'
+'Cover half your screen with a cat',
+'Enemies are 20% smaller'
 ]
 var debuffSelectOne = 0
 var debuffSelectTwo = 0
@@ -41,17 +42,19 @@ func getDebuffFunction(debuffSelect):
 		catjam.show()
 		catjam.play("default")
 		catjamOn = true
+	elif debuffSelect == 4:
+		level.changeEnemyScale()
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,3)
+		debuffSelectOne = randi_range(0,4)
 	else:
-		debuffSelectOne = randi_range(0,2)
+		debuffSelectOne = randi_range(0,3)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,3)
+			debuffSelectTwo = randi_range(0,4)
 		else:
-			debuffSelectTwo = randi_range(0,2)
+			debuffSelectTwo = randi_range(0,3)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true
