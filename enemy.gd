@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var enemyHealth = 1
 var scaleFactor = 1
+@export var deathThreshhold = 0
 @export var enemyspeed = 150.0
 @export var rotation_enemyspeed = 5
 @onready var killThySelf = get_node('../../Level/HUD')
@@ -22,7 +23,7 @@ func _process(_delta):
 		level.livingEnemies -= 1
 		queue_free()
 		killThySelf.damage()
-	if enemyHealth < 0:
+	if enemyHealth < deathThreshhold:
 		level.livingEnemies -= 1
 		queue_free()
 

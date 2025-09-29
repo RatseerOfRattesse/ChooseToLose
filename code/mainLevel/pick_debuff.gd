@@ -4,11 +4,13 @@ extends Control
 @onready var pauseMenu = get_node('../../PauseMenu')
 @onready var level = get_node('../../../Level')
 @onready var catjam = get_node('../../Catjam')
+@onready var enemy = get_node('../../../Level/Enemy')
 const debuffDescription = ['Decrease movement speed by 20%', 
 'Increase enemy movement speed by 10%', 
 'Increase enemies per wave by one',
 'Cover half your screen with a cat',
-'Enemies are 20% smaller'
+'Enemies are 20% smaller',
+'Plus one enemy health'
 ]
 var debuffSelectOne = 0
 var debuffSelectTwo = 0
@@ -18,6 +20,7 @@ signal enemySpeedBoost
 
 func _ready():
 	self.hide()
+	print(enemy)
 
 func _on_next_pressed() -> void:
 	self.show()
@@ -44,17 +47,19 @@ func getDebuffFunction(debuffSelect):
 		catjamOn = true
 	elif debuffSelect == 4:
 		level.changeEnemyScale()
+	elif debuffSelect == 5:
+		level.changeDT()
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,4)
+		debuffSelectOne = randi_range(0,5)
 	else:
-		debuffSelectOne = randi_range(0,3)
+		debuffSelectOne = randi_range(0,4)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,4)
+			debuffSelectTwo = randi_range(0,5)
 		else:
-			debuffSelectTwo = randi_range(0,3)
+			debuffSelectTwo = randi_range(0,4)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true
