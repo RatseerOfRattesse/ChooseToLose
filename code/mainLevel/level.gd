@@ -39,7 +39,7 @@ func _process(_delta):
 			spawnEnemy()
 	if livingEnemies == enemyPerWave:
 		enemiesLoaded = true
-	if livingEnemies == 0 && enemiesLoaded == true && ingame == true:
+	if livingEnemies > 1 && enemiesLoaded == true && ingame == true:
 		hud.win()
 		#print("win")
 	#print("enemiesLoaded: " + str(enemiesLoaded))

@@ -20,7 +20,7 @@ func _process(_delta):
 	if position.x > 0:
 		pass
 	else:
-		level.livingEnemies -= 1
+		#level.livingEnemies -= 1
 		queue_free()
 		killThySelf.damage()
 	if enemyHealth < deathThreshhold:
