@@ -4,6 +4,7 @@ extends Node2D
 @onready var health3 = get_node('HUD/Health3')
 @onready var hud = get_node('HUD')
 @onready var tutorial = get_node('Tutorial')
+@onready var player = get_node('player2')
 @export var wave = 0
 @export var perWaveBuff = 0
 @export var enemyPerWave = wave * perWaveBuff
@@ -27,7 +28,7 @@ func changeEnemyScale():
 func _ready():
 	if startButton:
 		startButton.pressed.connect(on_start_pressed)
-		
+
 func on_start_pressed():
 	self.show()
 	livingEnemies = 0
@@ -39,7 +40,7 @@ func _process(_delta):
 			spawnEnemy()
 	if livingEnemies == enemyPerWave:
 		enemiesLoaded = true
-	if livingEnemies > 1 && enemiesLoaded == true && ingame == true:
+	if livingEnemies == 0 && enemiesLoaded == true && ingame == true:
 		hud.win()
 		#print("win")
 	#print("enemiesLoaded: " + str(enemiesLoaded))
@@ -65,12 +66,13 @@ func _on_debuff_1_pressed() -> void:
 	wave += 1
 	ingame = true
 	$HUD/PickDebuff.hide()
+	player.bigBulletAllowance = 2
 
 func _on_debuff_2_pressed() -> void:
 	wave += 1
 	ingame = true
 	$HUD/PickDebuff.hide()
-
+	player.bigBulletAllowance = 2
 
 func _on_pick_debuff_enemy_speed_boost() -> void:
 	#print("boost")
