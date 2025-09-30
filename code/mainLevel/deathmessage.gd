@@ -22,4 +22,3 @@ const deathMessages = ["[YOU DIED]",
 
 func _on_hud_died() -> void:
 	text = deathMessages.pick_random()
-	
