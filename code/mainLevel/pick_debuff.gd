@@ -5,6 +5,7 @@ extends Control
 @onready var level = get_node('../../../Level')
 @onready var catjam = get_node('../../Catjam')
 @onready var enemy = get_node('../../../Level/Enemy')
+@onready var music = get_node('../../../../Music')
 const debuffDescription = ['Decrease movement speed by 20%', 
 'Increase enemy movement speed by 10%', 
 'Increase enemies per wave by one',
@@ -13,6 +14,7 @@ const debuffDescription = ['Decrease movement speed by 20%',
 'Plus one enemy health',
 'Mystery!',
 'Decrease bullet speed',
+'You thought the music option was useless didn\'t you?',
 'Cover half your screen with a cat',
 ]
 var debuffSelectOne = 0
@@ -20,6 +22,7 @@ var debuffSelectTwo = 0
 var selecting = true
 var catjamOn = false
 signal enemySpeedBoost
+var musicOn = false
 
 func _ready():
 	self.hide()
@@ -56,20 +59,24 @@ func getDebuffFunction(debuffSelect):
 	elif debuffSelect == 7:
 		player.decreaseBulletSpeed()
 	elif debuffSelect == 8:
+		if musicOn == false:
+			musicOn = true
+			music.playing = true
+	elif debuffSelect == 9:
 		catjam.show()
 		catjam.play("default")
 		catjamOn = true
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,8)
+		debuffSelectOne = randi_range(8,9)
 	else:
-		debuffSelectOne = randi_range(0,7)
+		debuffSelectOne = randi_range(8,9)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,8)
+			debuffSelectTwo = randi_range(8,9)
 		else:
-			debuffSelectTwo = randi_range(0,7)
+			debuffSelectTwo = randi_range(8,9)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true
