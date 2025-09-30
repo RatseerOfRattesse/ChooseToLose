@@ -11,6 +11,7 @@ const debuffDescription = ['Decrease movement speed by 20%',
 'Enemies spawn closer',
 'Enemies are 20% smaller',
 'Plus one enemy health',
+'Mystery!',
 'Cover half your screen with a cat',
 ]
 var debuffSelectOne = 0
@@ -43,27 +44,29 @@ func getDebuffFunction(debuffSelect):
 	elif debuffSelect == 2:
 		level.buffEnemyCount()
 	elif debuffSelect == 3:
-		level.enemySpawnXBottom -= 300
-		level.enemySpawnXBottom -= 300
+		level.enemySpawnXBottom -= 50
+		level.enemySpawnXBottom -= 50
 	elif debuffSelect == 4:
 		level.changeEnemyScale()
 	elif debuffSelect == 5:
 		level.changeDT()
 	elif debuffSelect == 6:
+		pass
+	elif debuffSelect == 7:
 		catjam.show()
 		catjam.play("default")
 		catjamOn = true
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,6)
+		debuffSelectOne = randi_range(0,7)
 	else:
-		debuffSelectOne = randi_range(0,5)
+		debuffSelectOne = randi_range(0,6)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,6)
+			debuffSelectTwo = randi_range(0,7)
 		else:
-			debuffSelectTwo = randi_range(0,5)
+			debuffSelectTwo = randi_range(0,6)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true
