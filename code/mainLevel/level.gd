@@ -18,6 +18,8 @@ var enemyCount = 0
 var enemy
 var livingEnemies = 0
 var enemySpeed = 150.0
+var enemySpawnXBottom = 1100
+var enemySpawnXTop = 2100
 
 func changeDT():
 	DT -= 1
@@ -51,7 +53,7 @@ func _process(_delta):
 func spawnEnemy():
 	enemy = enemyScene.instantiate()
 	add_child(enemy)
-	enemy.position = Vector2(randi_range(1100, 2100), randi_range(40,600))
+	enemy.position = Vector2(randi_range(enemySpawnXBottom, enemySpawnXTop), randi_range(40,600))
 	enemy.enemyspeed = enemySpeed
 	enemy.scale = Vector2(enemyScale, enemyScale)
 	enemy.deathThreshhold = DT
