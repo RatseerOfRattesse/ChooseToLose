@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6881o4sxrb8y"]
 
 [ext_resource type="Script" uid="uid://d11b6jylwt4se" path="res://code/entities/big_bullet.gd" id="1_741r3"]
-[ext_resource type="Texture2D" uid="uid://bjyne6ewdcdqg" path="res://assets/game/bullet.png" id="2_iw6ho"]
+[ext_resource type="Texture2D" uid="uid://dgjn3jdhdlgnn" path="res://assets/game/bigbullet.png" id="2_xc27k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk82j"]
 size = Vector2(11.995539, 21.956295)
@@ -13,7 +13,7 @@ collision_mask = 2
 script = ExtResource("1_741r3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_iw6ho")
+texture = ExtResource("2_xc27k")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
