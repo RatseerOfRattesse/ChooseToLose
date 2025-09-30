@@ -12,6 +12,7 @@ const debuffDescription = ['Decrease movement speed by 20%',
 'Enemies are 20% smaller',
 'Plus one enemy health',
 'Mystery!',
+'Decrease bullet speed',
 'Cover half your screen with a cat',
 ]
 var debuffSelectOne = 0
@@ -53,20 +54,22 @@ func getDebuffFunction(debuffSelect):
 	elif debuffSelect == 6:
 		pass
 	elif debuffSelect == 7:
+		player.decreaseBulletSpeed()
+	elif debuffSelect == 8:
 		catjam.show()
 		catjam.play("default")
 		catjamOn = true
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,7)
+		debuffSelectOne = randi_range(0,8)
 	else:
-		debuffSelectOne = randi_range(0,6)
+		debuffSelectOne = randi_range(0,7)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,7)
+			debuffSelectTwo = randi_range(0,8)
 		else:
-			debuffSelectTwo = randi_range(0,6)
+			debuffSelectTwo = randi_range(0,7)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true

@@ -9,6 +9,7 @@ signal nextWave
 signal died
 var dead = false
 @onready var waveIndicator = get_node('WaveIndicator')
+@onready var enemyIndicator = get_node('EnemyIndicator')
 @onready var deathScreen = get_node('DeathScreen')
 @onready var winScreen = get_node('WinScreen')
 @onready var level = get_node("../../Level")
@@ -54,6 +55,7 @@ func _process(_delta):
 		health = 5
 	
 	waveIndicator.text = "WAVE: " + str(level.wave)
+	enemyIndicator.text = "ENEMIES LEFT: " + str(level.livingEnemies)
 	
 	if Input.is_action_just_pressed("die"):
 		die()

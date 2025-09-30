@@ -691,6 +691,7 @@ texture = ExtResource("6_ls32b")
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
+visible = false
 top_level = true
 layout_mode = 3
 anchors_preset = 0
@@ -757,7 +758,17 @@ offset_right = 301.0
 offset_bottom = 97.0
 texture = ExtResource("7_73ejk")
 
+[node name="EnemyIndicator" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 132.0
+offset_right = 281.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 32
+text = "ENEMIES LEFT: "
+
 [node name="DeathScreen" type="Control" parent="HUD"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -815,6 +826,7 @@ theme_override_icons/icon = ExtResource("10_8hfkb")
 text = "QUIT"
 
 [node name="PickDebuff" type="Control" parent="HUD"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -863,6 +875,7 @@ theme_override_font_sizes/font_size = 28
 theme_override_icons/icon = ExtResource("6_ls32b")
 
 [node name="WinScreen" type="Control" parent="HUD"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -924,6 +937,7 @@ theme_override_font_sizes/font_size = 32
 script = ExtResource("18_unoly")
 
 [node name="Catjam" type="AnimatedSprite2D" parent="."]
+visible = false
 top_level = true
 position = Vector2(324.00003, 324)
 scale = Vector2(3.6, 3.6)

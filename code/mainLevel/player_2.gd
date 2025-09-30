@@ -4,6 +4,7 @@ extends CharacterBody2D
 var bulletScene = preload("res://code/entities/Bullet.tscn")
 var bigBulletScene = preload("res://code/entities/BigBullet.tscn")
 var bigBulletAllowance = 2
+var bulletSpeed = 0.03
 
 func _ready():
 	position = Vector2(581,324)
@@ -37,6 +38,7 @@ func spawn_bullet():
 	var bullet = bulletScene.instantiate()
 	owner.add_child(bullet)
 	bullet.position = $Marker2D.global_position
+	bullet.bulletSpeed = bulletSpeed
 
 func spawnBigBullet():
 	if bigBulletAllowance > 0:
@@ -45,3 +47,6 @@ func spawnBigBullet():
 		bigBullet.scale = Vector2(2,2)
 		bigBullet.position = $Marker2D.global_position
 		bigBulletAllowance -= 1
+		
+func decreaseBulletSpeed():
+	bulletSpeed += 0.01
