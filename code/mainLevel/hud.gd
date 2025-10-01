@@ -14,6 +14,7 @@ var dead = false
 @onready var winScreen = get_node('WinScreen')
 @onready var level = get_node("../../Level")
 @onready var pauseMenu = get_node("../PauseMenu") 
+@onready var buffScreen = get_node('pickBuff')
 
 func _ready():
 	health1.hide()

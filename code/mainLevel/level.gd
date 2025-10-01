@@ -10,6 +10,7 @@ extends Node2D
 @export var enemyPerWave = wave * perWaveBuff
 @export var enemyScale = 1
 @export var DT = 0
+@export var bigBulletRefill = 2
 
 var ingame = false
 var enemiesLoaded = false
@@ -42,9 +43,9 @@ func _process(_delta):
 			spawnEnemy()
 	if livingEnemies == enemyPerWave:
 		enemiesLoaded = true
+		#print("win")
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true:
 		hud.win()
-		#print("win")
 	#print("enemiesLoaded: " + str(enemiesLoaded))
 	#print("ingame: " + str(ingame))
 	#print("livingEnemies: " + str(livingEnemies))
@@ -68,14 +69,27 @@ func _on_debuff_1_pressed() -> void:
 	wave += 1
 	ingame = true
 	$HUD/PickDebuff.hide()
-	player.bigBulletAllowance = 2
+	player.bigBulletAllowance = bigBulletRefill
 
 func _on_debuff_2_pressed() -> void:
 	wave += 1
 	ingame = true
 	$HUD/PickDebuff.hide()
-	player.bigBulletAllowance = 2
+	player.bigBulletAllowance = bigBulletRefill
 
 func _on_pick_debuff_enemy_speed_boost() -> void:
 	#print("boost")
 	enemySpeed += (enemySpeed/100)*10
+
+
+func _on_buff_1_pressed() -> void:
+	wave += 1
+	ingame = true
+	$HUD/pickBuff.hide()
+	player.bigBulletAllowance = bigBulletRefill
+
+func _on_buff_2_pressed() -> void:
+	wave += 1
+	ingame = true
+	$HUD/pickBuff.hide()
+	player.bigBulletAllowance = bigBulletRefill
