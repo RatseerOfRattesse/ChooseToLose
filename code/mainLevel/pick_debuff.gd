@@ -26,11 +26,11 @@ var musicOn = false
 
 func _ready():
 	self.hide()
-	print(enemy)
 
 func _on_next_pressed() -> void:
-	self.show()
-	reloadDebuff()
+	if level.wave % 5 != 0:
+		self.show()
+		reloadDebuff()
 
 func _on_debuff_1_pressed() -> void:
 	getDebuffFunction(debuffSelectOne)
