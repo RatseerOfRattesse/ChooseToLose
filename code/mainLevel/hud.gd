@@ -15,11 +15,13 @@ var dead = false
 @onready var level = get_node("../../Level")
 @onready var pauseMenu = get_node("../PauseMenu") 
 @onready var buffScreen = get_node('pickBuff')
+@onready var debuffScreen = get_node('PickDebuff')
 
 func _ready():
 	health1.hide()
 	health2.hide()
 	health3.hide()
+	$InvertIndicator.text = 'INVERTED CONTROLS: OFF'
 
 func damage():
 	health -= 1
@@ -78,3 +80,10 @@ func win():
 	level.ingame = false
 	level.enemiesLoaded = false
 	level.enemyCount = 0
+
+
+func _on_pick_debuff_time_to_invert() -> void:
+	if debuffScreen.invert == true:
+		$InvertIndicator.text = 'INVERTED CONTROLS: ON'
+	else:
+		$InvertIndicator.text = 'INVERTED CONTROLS: OFF'

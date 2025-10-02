@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=184 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -19,8 +19,10 @@
 [ext_resource type="Script" uid="uid://2jy8wbeamjjm" path="res://code/mainLevel/pick_debuff.gd" id="15_muymf"]
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
+[ext_resource type="AudioStream" uid="uid://cre1of88la3rr" path="res://assets/audio/lobotomy-sound-effect.mp3" id="18_nm6w8"]
 [ext_resource type="Script" uid="uid://cxal2ot00kd1f" path="res://code/mainLevel/tutorial.gd" id="18_unoly"]
 [ext_resource type="Script" uid="uid://cp5d46bm258s1" path="res://code/mainLevel/pick_buff.gd" id="19_72qr4"]
+[ext_resource type="Script" uid="uid://c03fqib5ri4ab" path="res://code/mainLevel/audio_stream_player_2d.gd" id="19_j02uk"]
 [ext_resource type="Texture2D" uid="uid://8omg30h5y75m" path="res://assets/game/catjam/frame_000_delay-0.03s.png" id="21_xf8er"]
 [ext_resource type="Texture2D" uid="uid://d3v3xwh6xqvp5" path="res://assets/game/catjam/frame_001_delay-0.03s.png" id="22_72qr4"]
 [ext_resource type="Texture2D" uid="uid://b8b2e5pxjj24d" path="res://assets/game/catjam/frame_002_delay-0.03s.png" id="23_xn560"]
@@ -726,6 +728,15 @@ offset_bottom = 45.0
 theme = ExtResource("10_gg7ke")
 script = ExtResource("10_864yn")
 
+[node name="InvertIndicator" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 168.0
+offset_right = 358.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 32
+text = "INVERTED CONTROLS:"
+
 [node name="WaveIndicator" type="Label" parent="HUD"]
 layout_mode = 0
 offset_left = 13.0
@@ -875,6 +886,11 @@ tooltip_text = "You lose either way."
 theme_override_font_sizes/font_size = 28
 theme_override_icons/icon = ExtResource("6_ls32b")
 
+[node name="lobotomySound" type="AudioStreamPlayer2D" parent="HUD/PickDebuff"]
+position = Vector2(0, -45)
+stream = ExtResource("18_nm6w8")
+script = ExtResource("19_j02uk")
+
 [node name="WinScreen" type="Control" parent="HUD"]
 visible = false
 anchors_preset = 0
@@ -926,6 +942,7 @@ theme_override_icons/icon = ExtResource("6_ls32b")
 text = "NEXT WAVE"
 
 [node name="pickBuff" type="Control" parent="HUD"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -979,6 +996,7 @@ offset_top = 561.0
 offset_right = 1162.0
 offset_bottom = 648.0
 theme_override_font_sizes/font_size = 32
+text = "This is the tutorial text"
 script = ExtResource("18_unoly")
 
 [node name="Catjam" type="AnimatedSprite2D" parent="."]
@@ -994,6 +1012,8 @@ frame_progress = 0.43026286
 [connection signal="died" from="HUD" to="HUD/DeathScreen/Label" method="_on_hud_died"]
 [connection signal="nextWave" from="HUD" to="PauseMenu" method="_on_hud_next_wave"]
 [connection signal="enemySpeedBoost" from="HUD/PickDebuff" to="." method="_on_pick_debuff_enemy_speed_boost"]
+[connection signal="timeToInvert" from="HUD/PickDebuff" to="HUD" method="_on_pick_debuff_time_to_invert"]
+[connection signal="timeToInvert" from="HUD/PickDebuff" to="HUD/PickDebuff/lobotomySound" method="_on_pick_debuff_time_to_invert"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="." method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff1" to="HUD/PickDebuff" method="_on_debuff_1_pressed"]
 [connection signal="pressed" from="HUD/PickDebuff/Debuff2" to="." method="_on_debuff_2_pressed"]

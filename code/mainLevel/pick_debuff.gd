@@ -15,6 +15,7 @@ const debuffDescription = ['Decrease movement speed by 20%',
 'Mystery!',
 'Decrease bullet speed',
 'You thought the music option was useless didn\'t you?',
+'Invert your controls at random intervals',
 'Cover half your screen with a cat',
 ]
 var debuffSelectOne = 0
@@ -23,9 +24,18 @@ var selecting = true
 var catjamOn = false
 signal enemySpeedBoost
 var musicOn = false
+var tomFoolery = false
+var invert = false
+signal timeToInvert
 
 func _ready():
 	self.hide()
+
+func _process(_delta):
+	if invert == true:
+		player.invertControls = -1
+	else:
+		player.invertControls = 1
 
 func _on_next_pressed() -> void:
 	if level.wave % 5 != 0:
@@ -63,22 +73,35 @@ func getDebuffFunction(debuffSelect):
 			musicOn = true
 			music.playing = true
 	elif debuffSelect == 9:
+		goofyControls()
+	elif debuffSelect == 10:
 		catjam.show()
 		catjam.play("default")
 		catjamOn = true
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,9)
+		debuffSelectOne = randi_range(9,10)
 	else:
-		debuffSelectOne = randi_range(0,8)
+		debuffSelectOne = randi_range(9,9)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,9)
+			debuffSelectTwo = randi_range(9,10)
 		else:
-			debuffSelectTwo = randi_range(0,8)
+			debuffSelectTwo = randi_range(9,9)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true
 	$Debuff1.text = debuffDescription[debuffSelectOne]
 	$Debuff2.text = debuffDescription[debuffSelectTwo]
+
+func goofyControls():
+	if tomFoolery == true:
+		tomFoolery = false
+	else:
+		tomFoolery = true
+	while tomFoolery:
+		while true:
+			invert = !invert
+			timeToInvert.emit()
+			await get_tree().create_timer(randi_range(4,10)).timeout
