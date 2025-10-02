@@ -21,6 +21,7 @@ var livingEnemies = 0
 var enemySpeed = 150.0
 var enemySpawnXBottom = 1100
 var enemySpawnXTop = 2100
+var damageTaken = 1
 
 func changeDT():
 	DT -= 1
@@ -56,11 +57,11 @@ func spawnEnemy():
 	add_child(enemy)
 	enemy.position = Vector2(randi_range(enemySpawnXBottom, enemySpawnXTop), randi_range(40,600))
 	enemy.enemyspeed = enemySpeed
+	enemy.damage = damageTaken
 	enemy.scale = Vector2(enemyScale, enemyScale)
 	enemy.deathThreshhold = DT
 	enemyCount += 1
 	livingEnemies = enemyCount
-	
 
 func buffEnemyCount():
 	perWaveBuff += 1
@@ -93,3 +94,7 @@ func _on_buff_2_pressed() -> void:
 	ingame = true
 	$HUD/pickBuff.hide()
 	player.bigBulletAllowance = bigBulletRefill
+
+
+func _on_pick_buff_increase_damage_taken() -> void:
+	damageTaken += 1

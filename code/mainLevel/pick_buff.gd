@@ -2,17 +2,19 @@ extends Control
 
 @onready var level = get_node('../../../Level')
 @onready var pauseMenu = get_node('../../PauseMenu')
+@onready var enemy = get_node('../../../Level/Enemy')
 var buffSelectOne = 0
 var buffSelectTwo = 0
 var selecting = true
 
+signal increaseDamageTaken
+
 var buffList = ['Increase per wave big bullet allowance by two',
-'This is also one of the buff options']
+'Plus 0.5 bullet damage']
 
 
 func _ready():
 	self.hide()
-	print(level)
 
 
 func _on_next_pressed() -> void:
@@ -34,7 +36,7 @@ func activateBuff(buffSelection):
 	if buffSelection == 0:
 		level.bigBulletRefill += 2
 	if buffSelection == 1:
-		pass
+		increaseDamageTaken.emit()
 
 func _on_buff_1_pressed() -> void:
 	pauseMenu.pressed = false

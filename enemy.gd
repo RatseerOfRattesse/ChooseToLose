@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-var enemyHealth = 1
+var enemyHealth = 1.5
 var scaleFactor = 1
+@export var damage = 1
 @export var deathThreshhold = 0
 @export var enemyspeed = 150.0
 @export var rotation_enemyspeed = 5
@@ -28,8 +29,7 @@ func _process(_delta):
 		queue_free()
 
 func takeDamage():
-	enemyHealth -= 1
+	enemyHealth -= damage
 	
 func _on_area_2d_area_entered(_area: Area2D) -> void:
-	enemyHealth -= 1
-	
+	enemyHealth -= damage

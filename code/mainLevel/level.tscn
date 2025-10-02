@@ -1001,6 +1001,7 @@ frame_progress = 0.43026286
 [connection signal="pressed" from="HUD/WinScreen/Next" to="HUD/PickDebuff" method="_on_next_pressed"]
 [connection signal="pressed" from="HUD/WinScreen/Next" to="HUD/WinScreen" method="_on_next_pressed"]
 [connection signal="pressed" from="HUD/WinScreen/Next" to="HUD/pickBuff" method="_on_next_pressed"]
+[connection signal="increaseDamageTaken" from="HUD/pickBuff" to="." method="_on_pick_buff_increase_damage_taken"]
 [connection signal="pressed" from="HUD/pickBuff/Buff1" to="." method="_on_buff_1_pressed"]
 [connection signal="pressed" from="HUD/pickBuff/Buff1" to="HUD/pickBuff" method="_on_buff_1_pressed"]
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="." method="_on_buff_2_pressed"]
