@@ -16,7 +16,6 @@ func _physics_process(delta):
 	velocity = transform.x * -1 * enemyspeed
 	rotation += rotation_direction * rotation_enemyspeed * delta
 	move_and_slide()
-
 func _process(_delta):
 	if position.x > 0:
 		pass

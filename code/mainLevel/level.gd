@@ -97,4 +97,4 @@ func _on_buff_2_pressed() -> void:
 
 
 func _on_pick_buff_increase_damage_taken() -> void:
-	damageTaken += 1
+	damageTaken += 0.5
