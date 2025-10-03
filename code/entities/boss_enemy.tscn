@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqdm8dya4kdf5"]
+
+[ext_resource type="Texture2D" uid="uid://v4e2we12ngya" path="res://assets/game/enemy.png" id="1_ppvbo"]
+[ext_resource type="Script" uid="uid://d3bu101r1py3s" path="res://code/entities/boss_enemy.gd" id="1_x4wsp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4wsp"]
+radius = 110.00455
+
+[node name="BossEnemy" type="CharacterBody2D"]
+position = Vector2(777, 158)
+script = ExtResource("1_x4wsp")
+
+[node name="bossSprite" type="Sprite2D" parent="."]
+position = Vector2(137, 133)
+scale = Vector2(7.8750005, 7.8750005)
+texture = ExtResource("1_ppvbo")
+
+[node name="bossArea" type="Area2D" parent="."]
+
+[node name="bossHitBox" type="CollisionShape2D" parent="bossArea"]
+position = Vector2(139, 133)
+shape = SubResource("CircleShape2D_x4wsp")
+
+[connection signal="area_entered" from="bossArea" to="." method="_on_boss_area_area_entered"]

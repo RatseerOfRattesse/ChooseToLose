@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=186 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cre1of88la3rr" path="res://assets/audio/lobotomy-sound-effect.mp3" id="18_nm6w8"]
 [ext_resource type="Script" uid="uid://cxal2ot00kd1f" path="res://code/mainLevel/tutorial.gd" id="18_unoly"]
 [ext_resource type="Script" uid="uid://cp5d46bm258s1" path="res://code/mainLevel/pick_buff.gd" id="19_72qr4"]
-[ext_resource type="Script" uid="uid://c03fqib5ri4ab" path="res://code/mainLevel/audio_stream_player_2d.gd" id="19_j02uk"]
+[ext_resource type="Script" uid="uid://c03fqib5ri4ab" path="res://code/mainLevel/tutKeySound.gd" id="19_j02uk"]
 [ext_resource type="Texture2D" uid="uid://8omg30h5y75m" path="res://assets/game/catjam/frame_000_delay-0.03s.png" id="21_xf8er"]
 [ext_resource type="Texture2D" uid="uid://d3v3xwh6xqvp5" path="res://assets/game/catjam/frame_001_delay-0.03s.png" id="22_72qr4"]
 [ext_resource type="Texture2D" uid="uid://b8b2e5pxjj24d" path="res://assets/game/catjam/frame_002_delay-0.03s.png" id="23_xn560"]
@@ -181,6 +181,8 @@
 [ext_resource type="Texture2D" uid="uid://cid46e7sq7qij" path="res://assets/game/catjam/frame_155_delay-0.03s.png" id="176_mhw2q"]
 [ext_resource type="Texture2D" uid="uid://c5plr6xu1vbn" path="res://assets/game/catjam/frame_156_delay-0.03s.png" id="177_kwejg"]
 [ext_resource type="Texture2D" uid="uid://c0035m2wks1g7" path="res://assets/game/catjam/frame_157_delay-0.03s.png" id="178_st13c"]
+[ext_resource type="AudioStream" uid="uid://fsxetsn8kem2" path="res://assets/audio/keyboard.mp3" id="182_4olpc"]
+[ext_resource type="Script" uid="uid://o7qjtfo1opo5" path="res://code/Background/backgroundKeyPress.gd" id="183_6m8ss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -1007,6 +1009,10 @@ scale = Vector2(3.6, 3.6)
 sprite_frames = SubResource("SpriteFrames_vego0")
 frame_progress = 0.43026286
 
+[node name="keyPressSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("182_4olpc")
+script = ExtResource("183_6m8ss")
+
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
 [connection signal="died" from="HUD" to="HUD/DeathScreen/Label" method="_on_hud_died"]
@@ -1026,3 +1032,4 @@ frame_progress = 0.43026286
 [connection signal="pressed" from="HUD/pickBuff/Buff1" to="HUD/pickBuff" method="_on_buff_1_pressed"]
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="." method="_on_buff_2_pressed"]
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="HUD/pickBuff" method="_on_buff_2_pressed"]
+[connection signal="tutKeyPress" from="Tutorial" to="keyPressSound" method="_on_tutorial_tut_key_press"]

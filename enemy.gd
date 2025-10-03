@@ -26,9 +26,6 @@ func _process(_delta):
 	if enemyHealth < deathThreshhold:
 		level.livingEnemies -= 1
 		queue_free()
-
-func takeDamage():
-	enemyHealth -= damage
 	
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	enemyHealth -= damage
