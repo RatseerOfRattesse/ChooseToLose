@@ -11,6 +11,7 @@ var StartText = ["",
 "[SPACE] to fire a piercing shot, you get two uses per wave",
 "DEFEND YOUR BRAIN FROM THE NEW CUTTING-EDGE DREAM ADS \n(PATENT PENDING)",
 "LOSE ALL 3 LIVES, YOU WILL BE UNDER CORPORATE INFLUENCE."]
+signal tutKeyPress
 
 var temp = 0
 
@@ -35,6 +36,7 @@ func type(array):
 				visible_characters += 1
 				await get_tree().create_timer(0.1).timeout
 				printedchars += 1
+				tutKeyPress.emit()
 		temp = 0
 		if printedchars == array[line].length():
 			await get_tree().create_timer(2).timeout

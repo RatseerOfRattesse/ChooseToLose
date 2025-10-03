@@ -7,6 +7,7 @@ var StartText = ["THE YEAR IS 2050.",
 "MIRACULOUSLY, THE APOCALYPSE HASN'T HAPPENED YET.", 
 "CORPORATIONS HAVE CONTINUED TO INSINUATE THEMSELVES \n INTO ALL ASPECTS OF REALITY.", 
 "YOUR DREAMS ARE NEXT."]
+signal soundKey
 
 var temp = 0
 
@@ -25,8 +26,9 @@ func type(array):
 		for character in array[line].length():
 			if temp == 0:
 				visible_characters += 1
-				await get_tree().create_timer(0.1).timeout
+				await get_tree().create_timer(randf_range(0.1, 0.2)).timeout
 				printedchars += 1
+				soundKey.emit()
 		temp = 0
 		if printedchars == array[line].length():
 			await get_tree().create_timer(2).timeout

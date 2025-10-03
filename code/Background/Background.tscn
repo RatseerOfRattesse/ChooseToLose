@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://doiqq2ujfn8yl"]
+[gd_scene load_steps=8 format=3 uid="uid://doiqq2ujfn8yl"]
 
 [ext_resource type="Texture2D" uid="uid://ck0is27d2gq41" path="res://assets/level/generic.png" id="1_il40e"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_wp11a"]
 [ext_resource type="FontFile" uid="uid://co587xvk0v3qi" path="res://assets/font/CourierPrime-Regular.ttf" id="3_mtk6w"]
 [ext_resource type="Script" uid="uid://r00i6d70of5x" path="res://code/Background/start_text.gd" id="4_a5m2w"]
 [ext_resource type="Script" uid="uid://cajmwvajq500n" path="res://code/Background/skip_prompt.gd" id="5_tadg0"]
+[ext_resource type="AudioStream" uid="uid://fsxetsn8kem2" path="res://assets/audio/keyboard.mp3" id="6_dpbuv"]
+[ext_resource type="Script" uid="uid://o7qjtfo1opo5" path="res://code/Background/backgroundKeyPress.gd" id="7_rwe84"]
 
 [node name="Background" type="Node2D"]
 
@@ -38,3 +40,9 @@ text = "Press [ENTER] if no attention span."
 horizontal_alignment = 1
 vertical_alignment = 2
 script = ExtResource("5_tadg0")
+
+[node name="keyPressSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dpbuv")
+script = ExtResource("7_rwe84")
+
+[connection signal="soundKey" from="StartText" to="keyPressSound" method="_on_start_text_sound_key"]
