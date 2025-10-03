@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://r00i6d70of5x" path="res://code/Background/start_text.gd" id="4_a5m2w"]
 [ext_resource type="Script" uid="uid://cajmwvajq500n" path="res://code/Background/skip_prompt.gd" id="5_tadg0"]
 [ext_resource type="AudioStream" uid="uid://fsxetsn8kem2" path="res://assets/audio/keyboard.mp3" id="6_dpbuv"]
-[ext_resource type="Script" uid="uid://o7qjtfo1opo5" path="res://code/Background/backgroundKeyPress.gd" id="7_rwe84"]
+[ext_resource type="Script" path="res://code/Background/backgroundKeyPress.gd" id="7_rwe84"]
 
 [node name="Background" type="Node2D"]
 
@@ -43,6 +43,7 @@ script = ExtResource("5_tadg0")
 
 [node name="keyPressSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dpbuv")
+bus = &"SFX"
 script = ExtResource("7_rwe84")
 
 [connection signal="soundKey" from="StartText" to="keyPressSound" method="_on_start_text_sound_key"]
