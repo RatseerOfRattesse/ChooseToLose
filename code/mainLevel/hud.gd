@@ -4,6 +4,8 @@ extends Control
 @onready var health1 = get_node('Health1')
 @onready var health2 = get_node('Health2')
 @onready var health3 = get_node('Health3')
+@onready var health4 = get_node('Health4')
+@onready var health5 = get_node('Health5')
 var healthIndicator = [health1, health2, health3]
 signal nextWave
 signal died
@@ -29,23 +31,42 @@ func damage():
 		level.livingEnemies -= 1
 	
 func _process(_delta):
-	if health == 3:  
-		health1.hide()
-		health2.hide()
-		health3.show()
-	elif health == 2:
-		health1.hide()
-		health3.hide()
-		health2.show()
-	elif health == 1:
+	if health == 1:
 		health3.hide()
 		health2.hide()
 		health1.show()
-	# hp 4 and 5 for technical purposes
+		health4.hide()
+		health5.hide()
+	elif health == 2:
+		health3.hide()
+		health2.show()
+		health1.hide()
+		health4.hide()
+		health5.hide()
+	elif health == 3:  
+		health1.hide()
+		health2.hide()
+		health3.show()
+		health4.hide()
+		health5.hide()
+	elif health == 4:
+		health1.hide()
+		health3.hide()
+		health2.hide()
+		health4.show()
+		health5.hide()
+	elif health == 5:
+		health3.hide()
+		health2.hide()
+		health1.hide()
+		health4.hide()
+		health5.show()
 	else:
 		health1.hide()
 		health2.hide()
 		health3.hide()
+		health4.hide()
+		health5.hide()
 		dead = true
 		die()
 		health = 5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=189 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -17,8 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://c4o8dukey3w4e" path="res://assets/ui/health2.png" id="12_2f7ys"]
 [ext_resource type="Script" uid="uid://d4kqaqsuhqhu0" path="res://code/mainLevel/wave_indicator.gd" id="14_f7xle"]
 [ext_resource type="Script" uid="uid://c81dsipa3u60e" path="res://code/mainLevel/deathmessage.gd" id="14_u6skp"]
+[ext_resource type="Texture2D" uid="uid://crnrgwq6y8wws" path="res://assets/ui/health4.png" id="15_07ih0"]
 [ext_resource type="Script" uid="uid://2jy8wbeamjjm" path="res://code/mainLevel/pick_debuff.gd" id="15_muymf"]
 [ext_resource type="Script" uid="uid://b6abessp3b5be" path="res://code/mainLevel/win_screen.gd" id="16_anylg"]
+[ext_resource type="Texture2D" uid="uid://tbxxiorwj0ia" path="res://assets/ui/health5.png" id="16_yopv7"]
 [ext_resource type="PackedScene" uid="uid://dp24fqo5r8pee" path="res://code/entities/enemy.tscn" id="17_anylg"]
 [ext_resource type="AudioStream" uid="uid://cre1of88la3rr" path="res://assets/audio/lobotomy-sound-effect.mp3" id="18_nm6w8"]
 [ext_resource type="Script" uid="uid://cxal2ot00kd1f" path="res://code/mainLevel/tutorial.gd" id="18_unoly"]
@@ -772,6 +774,22 @@ offset_top = 1.0
 offset_right = 301.0
 offset_bottom = 97.0
 texture = ExtResource("7_73ejk")
+
+[node name="Health4" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 97.0
+texture = ExtResource("15_07ih0")
+
+[node name="Health5" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 97.0
+texture = ExtResource("16_yopv7")
 
 [node name="EnemyIndicator" type="Label" parent="HUD"]
 layout_mode = 0
