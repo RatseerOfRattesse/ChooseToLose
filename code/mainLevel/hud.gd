@@ -1,6 +1,6 @@
 extends Control
 
-@export var health = 4
+@export var health = 3
 @onready var health1 = get_node('Health1')
 @onready var health2 = get_node('Health2')
 @onready var health3 = get_node('Health3')
@@ -24,8 +24,9 @@ func _ready():
 	$InvertIndicator.text = 'INVERTED CONTROLS: OFF'
 
 func damage():
-	health -= 1
-	level.livingEnemies -= 1
+	if level.ingame == true:
+		health -= 1
+		level.livingEnemies -= 1
 	
 func _process(_delta):
 	if health == 3:  
@@ -41,14 +42,6 @@ func _process(_delta):
 		health2.hide()
 		health1.show()
 	# hp 4 and 5 for technical purposes
-	elif health == 4:
-		health1.hide()
-		health2.hide()
-		health3.show()
-	elif health == 5:
-		health1.hide()
-		health2.hide()
-		health3.hide()
 	else:
 		health1.hide()
 		health2.hide()
