@@ -46,6 +46,7 @@ func _process(_delta):
 		enemiesLoaded = true
 		#print("win")
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true:
+		await get_tree().create_timer(0.01).timeout
 		hud.win()
 	#print("enemiesLoaded: " + str(enemiesLoaded))
 	#print("ingame: " + str(ingame))

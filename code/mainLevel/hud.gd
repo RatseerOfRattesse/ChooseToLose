@@ -88,12 +88,13 @@ func die():
 		died.emit()
 	
 func win():
-	winScreen.show()
-	pauseMenu.pressed = true
-	nextWave.emit()
-	level.ingame = false
-	level.enemiesLoaded = false
-	level.enemyCount = 0
+	if not deathScreen.visible:
+		winScreen.show()
+		pauseMenu.pressed = true
+		nextWave.emit()
+		level.ingame = false
+		level.enemiesLoaded = false
+		level.enemyCount = 0
 
 
 func _on_pick_debuff_time_to_invert() -> void:
