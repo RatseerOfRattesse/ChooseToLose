@@ -62,7 +62,6 @@ func _process(_delta):
 		phaseActive = false
 		bossEnemiesLoaded = false
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true && bossAlive == false:
-		await get_tree().create_timer(0.01).timeout
 		hud.win()
 	#print("enemiesLoaded: " + str(enemiesLoaded))a
 	#print("perWaveBuff: " + str(perWaveBuff))

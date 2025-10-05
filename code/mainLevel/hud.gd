@@ -79,6 +79,9 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("win"):
 		win()
+	
+	if deathScreen.visible:
+		winScreen.hide()
 
 func die():
 	if dead == true:
