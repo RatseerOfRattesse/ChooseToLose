@@ -1,28 +1,42 @@
 extends CharacterBody2D
 
-var enemyspeed = 10
+var bossSpeed = 50
 var bossHealth = 100
 var rotation_enemyspeed = 5
 var rotation_direction = 0
 var moving = true
 var remainingPhases = 3
+var takeDamage = true
+#var phaseActive = false
 @export var autopsy = false
 
+@onready var level = get_node('../../Level')
+@onready var accessHUD = get_node('../../Level/HUD')
+
 #Make sure damage variable is also incrased for the bullet buff
-var damage = 1
+@export var damage = 1
+
+func _ready():
+	#print(level)
+	pass
+	#print(accessHUD)
 
 func _physics_process(delta):
 	if moving == true:
-		velocity = transform.x * -1 * enemyspeed
+		velocity = transform.x * -1 * bossSpeed
 		rotation += rotation_direction * rotation_enemyspeed * delta
 		move_and_slide()
 
 func _process(_delta):
+	#print(bossHealth)
 	if position.x > 0:
 		pass
 	else:
-		pass
-		#Code all the funky killThySelf shit here
+		if level.ingame == true:
+			for i in accessHUD.health + 3:
+				print('this is supposed to take off damage')
+				accessHUD.health -= 1
+		queue_free()
 	if bossHealth < 0:
 		queue_free()
 		autopsy = true
@@ -35,13 +49,22 @@ func _process(_delta):
 	if remainingPhases == 1 and bossHealth <= 25:
 		remainingPhases = 0
 		phaseThree()
+	if level.phaseActive == true:
+		bossSpeed = 0
+		takeDamage = false
+	else:
+		bossSpeed = 50
+		takeDamage = true
 
 func _on_boss_area_area_entered(_area: Area2D) -> void:
-	bossHealth -= damage
+	if takeDamage == true:
+		bossHealth -= damage
 
 func phaseOne():
 	pass
+	level.phaseActive = true
 	print('phase 1 worked')
+	level.spawnBossEnemies()
 	#what is going to happen at 75% health
 
 func phaseTwo():

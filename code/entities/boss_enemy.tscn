@@ -7,7 +7,7 @@
 radius = 110.00455
 
 [node name="BossEnemy" type="CharacterBody2D"]
-position = Vector2(777, 158)
+position = Vector2(761, 176)
 script = ExtResource("1_x4wsp")
 
 [node name="bossSprite" type="Sprite2D" parent="."]
@@ -16,9 +16,11 @@ scale = Vector2(7.8750005, 7.8750005)
 texture = ExtResource("1_ppvbo")
 
 [node name="bossArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="bossHitBox" type="CollisionShape2D" parent="bossArea"]
-position = Vector2(139, 133)
+position = Vector2(138, 133)
 shape = SubResource("CircleShape2D_x4wsp")
 
 [connection signal="area_entered" from="bossArea" to="." method="_on_boss_area_area_entered"]

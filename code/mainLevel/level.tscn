@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=187 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -183,6 +183,7 @@
 [ext_resource type="Texture2D" uid="uid://c0035m2wks1g7" path="res://assets/game/catjam/frame_157_delay-0.03s.png" id="178_st13c"]
 [ext_resource type="AudioStream" uid="uid://fsxetsn8kem2" path="res://assets/audio/keyboard.mp3" id="182_4olpc"]
 [ext_resource type="Script" uid="uid://o7qjtfo1opo5" path="res://code/Background/backgroundKeyPress.gd" id="183_6m8ss"]
+[ext_resource type="PackedScene" uid="uid://dqdm8dya4kdf5" path="res://code/entities/boss_enemy.tscn" id="184_6m8ss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -1013,6 +1014,10 @@ frame_progress = 0.43026286
 stream = ExtResource("182_4olpc")
 bus = &"SFX"
 script = ExtResource("183_6m8ss")
+
+[node name="BossEnemy" parent="." instance=ExtResource("184_6m8ss")]
+process_mode = 1
+position = Vector2(-290, 80)
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]

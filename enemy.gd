@@ -5,6 +5,8 @@ var scaleFactor = 1
 @export var damage = 1
 @export var deathThreshhold = 0
 @export var enemyspeed = 150.0
+@export var doDecreaseLE = true
+@export var doDecreaseBE = false
 @export var rotation_enemyspeed = 5
 @onready var killThySelf = get_node('../../Level/HUD')
 @onready var pickDebuff = get_node('../../Level/HUD/PickDebuff')
@@ -24,7 +26,10 @@ func _process(_delta):
 		queue_free()
 		killThySelf.damage()
 	if enemyHealth < deathThreshhold:
-		level.livingEnemies -= 1
+		if doDecreaseLE == true:
+			level.livingEnemies -= 1
+		if doDecreaseBE == true:
+			level.bossEnemies -= 1
 		queue_free()
 	
 func _on_area_2d_area_entered(_area: Area2D) -> void:
