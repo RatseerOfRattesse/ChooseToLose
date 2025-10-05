@@ -1,9 +1,11 @@
 extends Control
 
-@export var health = 4
+@export var health = 3
 @onready var health1 = get_node('Health1')
 @onready var health2 = get_node('Health2')
 @onready var health3 = get_node('Health3')
+@onready var health4 = get_node('Health4')
+@onready var health5 = get_node('Health5')
 var healthIndicator = [health1, health2, health3]
 signal nextWave
 signal died
@@ -24,35 +26,47 @@ func _ready():
 	$InvertIndicator.text = 'INVERTED CONTROLS: OFF'
 
 func damage():
-	health -= 1
-	level.livingEnemies -= 1
+	if level.ingame == true:
+		health -= 1
+		level.livingEnemies -= 1
 	
 func _process(_delta):
-	if health == 3:  
-		health1.hide()
-		health2.hide()
-		health3.show()
-	elif health == 2:
-		health1.hide()
-		health3.hide()
-		health2.show()
-	elif health == 1:
+	if health == 1:
 		health3.hide()
 		health2.hide()
 		health1.show()
-	# hp 4 and 5 for technical purposes
-	elif health == 4:
+		health4.hide()
+		health5.hide()
+	elif health == 2:
+		health3.hide()
+		health2.show()
+		health1.hide()
+		health4.hide()
+		health5.hide()
+	elif health == 3:  
 		health1.hide()
 		health2.hide()
 		health3.show()
-	elif health == 5:
+		health4.hide()
+		health5.hide()
+	elif health == 4:
 		health1.hide()
-		health2.hide()
 		health3.hide()
+		health2.hide()
+		health4.show()
+		health5.hide()
+	elif health == 5:
+		health3.hide()
+		health2.hide()
+		health1.hide()
+		health4.hide()
+		health5.show()
 	else:
 		health1.hide()
 		health2.hide()
 		health3.hide()
+		health4.hide()
+		health5.hide()
 		dead = true
 		die()
 		health = 5
@@ -74,12 +88,13 @@ func die():
 		died.emit()
 	
 func win():
-	winScreen.show()
-	pauseMenu.pressed = true
-	nextWave.emit()
-	level.ingame = false
-	level.enemiesLoaded = false
-	level.enemyCount = 0
+	if not deathScreen.visible:
+		winScreen.show()
+		pauseMenu.pressed = true
+		nextWave.emit()
+		level.ingame = false
+		level.enemiesLoaded = false
+		level.enemyCount = 0
 
 
 func _on_pick_debuff_time_to_invert() -> void:

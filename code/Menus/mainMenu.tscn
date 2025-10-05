@@ -47,10 +47,12 @@ text = "OPTIONS"
 [node name="Credit" type="RichTextLabel" parent="."]
 offset_left = 406.0
 offset_top = 348.0
-offset_right = 752.0
+offset_right = 770.0
 offset_bottom = 391.0
 bbcode_enabled = true
-text = "Made by [url=\"https://github.com/idi0cy\"]idi0cy[/url] and [url=\"https://ratseerofrattesse.github.io\"]RatseerOfRattesse[/url]"
+text = "Made by [url=\"https://github.com/idi0cy\"]idi0cy[/url] and [url=\"https://ratseerofrattesse.github.io\"]RatseerOfRattesse[/url].
+Asset credits: [url=\"https://ratseerofrattesse.github.io/assets/misc/chooseToLoseCredit/index.html\"]Credits[/url]"
+horizontal_alignment = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("5_562pe")]
 visible = false
