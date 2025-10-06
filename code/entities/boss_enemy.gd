@@ -29,7 +29,7 @@ func _physics_process(delta):
 
 func _process(_delta):
 	#print(bossHealth)
-	if position.x > 0:
+	if position.x > -100:
 		pass
 	else:
 		if level.ingame == true:

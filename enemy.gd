@@ -11,6 +11,7 @@ var scaleFactor = 1
 @onready var killThySelf = get_node('../../Level/HUD')
 @onready var pickDebuff = get_node('../../Level/HUD/PickDebuff')
 @onready var level = get_node('../../Level')
+@onready var deathSound = get_node('../enemyDied')
 
 var rotation_direction = 0
 
@@ -30,7 +31,8 @@ func _process(_delta):
 			level.livingEnemies -= 1
 		if doDecreaseBE == true:
 			level.bossEnemies -= 1
+		deathSound.playSound()
 		queue_free()
-	
+		
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	enemyHealth -= damage

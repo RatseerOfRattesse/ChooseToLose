@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=192 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -187,6 +187,8 @@
 [ext_resource type="AudioStream" uid="uid://fsxetsn8kem2" path="res://assets/audio/keyboard.mp3" id="182_4olpc"]
 [ext_resource type="Script" uid="uid://o7qjtfo1opo5" path="res://code/Background/backgroundKeyPress.gd" id="183_6m8ss"]
 [ext_resource type="PackedScene" uid="uid://dqdm8dya4kdf5" path="res://code/entities/boss_enemy.tscn" id="184_6m8ss"]
+[ext_resource type="AudioStream" uid="uid://xd7i2h8mfghp" path="res://assets/audio/enemyDeath.mp3" id="188_ep36a"]
+[ext_resource type="Script" uid="uid://cvdusaqds3qgb" path="res://code/mainLevel/enemy_died.gd" id="189_wrqaj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -694,6 +696,7 @@ position = Vector2(583, 350)
 script = ExtResource("5_alqkf")
 
 [node name="Sprite2D" type="Sprite2D" parent="player2"]
+scale = Vector2(2, 2)
 texture = ExtResource("6_6m8ss")
 
 [node name="Marker2D" type="Marker2D" parent="player2"]
@@ -1037,6 +1040,10 @@ script = ExtResource("183_6m8ss")
 [node name="BossEnemy" parent="." instance=ExtResource("184_6m8ss")]
 process_mode = 1
 position = Vector2(-290, 80)
+
+[node name="enemyDied" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("188_ep36a")
+script = ExtResource("189_wrqaj")
 
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]

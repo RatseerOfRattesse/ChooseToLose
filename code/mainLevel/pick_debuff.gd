@@ -81,14 +81,14 @@ func getDebuffFunction(debuffSelect):
 
 func reloadDebuff():
 	if catjamOn == false:
-		debuffSelectOne = randi_range(0,10)
+		debuffSelectOne = randi_range(6,7)
 	else:
-		debuffSelectOne = randi_range(0,9)
+		debuffSelectOne = randi_range(6,7)
 	while selecting:
 		if catjamOn == false:
-			debuffSelectTwo = randi_range(0,10)
+			debuffSelectTwo = randi_range(6,7)
 		else:
-			debuffSelectTwo = randi_range(0,9)
+			debuffSelectTwo = randi_range(6,7)
 		if debuffSelectTwo != debuffSelectOne:
 			selecting = false
 	selecting = true

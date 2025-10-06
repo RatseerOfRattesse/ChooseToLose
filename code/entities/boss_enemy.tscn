@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqdm8dya4kdf5"]
 
-[ext_resource type="Script" path="res://code/entities/boss_enemy.gd" id="1_x4wsp"]
+[ext_resource type="Script" uid="uid://d3bu101r1py3s" path="res://code/entities/boss_enemy.gd" id="1_x4wsp"]
 [ext_resource type="Texture2D" uid="uid://drewx8lserh86" path="res://assets/game/boss.png" id="2_x4wsp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4wsp"]
-radius = 110.00455
+radius = 88.09086
 
 [node name="BossEnemy" type="CharacterBody2D"]
 position = Vector2(761, 176)
@@ -12,6 +12,7 @@ script = ExtResource("1_x4wsp")
 
 [node name="bossSprite" type="Sprite2D" parent="."]
 position = Vector2(137, 133)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_x4wsp")
 
 [node name="bossArea" type="Area2D" parent="."]
