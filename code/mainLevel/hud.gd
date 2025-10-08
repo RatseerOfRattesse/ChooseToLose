@@ -73,7 +73,7 @@ func _process(_delta):
 		health4.hide()
 		health5.hide()
 		dead = true
-		die()
+		#die()
 		health = 5
 	
 	waveIndicator.text = "WAVE: " + str(level.wave)

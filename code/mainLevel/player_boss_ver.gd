@@ -17,14 +17,14 @@ func _input(event):
 	if event.is_action_pressed('right'):
 		rotate(1.570796)
 
-func _process(_delta):
-	if health < 1:
-		pass
+#func _process(_delta):
+	#if health < 1:
+	#	pass
 		#death screen trigger
-		bossRoom.hide()
-		deathScreen.show()
-		level.show()
-		hud.die()
+	#	bossRoom.hide()
+	#	deathScreen.show()
+	#	level.show()
+	#	hud.die()
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	health -= 1

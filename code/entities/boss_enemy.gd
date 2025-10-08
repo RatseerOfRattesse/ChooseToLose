@@ -42,6 +42,7 @@ func _process(_delta):
 	if bossHealth < 0:
 		queue_free()
 		autopsy = true
+		accessHUD.win()
 	if remainingPhases == 3 and bossHealth <= 75:
 		remainingPhases = 2
 		phaseOne()
