@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://vyir7vq3aiy0"]
+
+[ext_resource type="Script" uid="uid://bemsty5ihq6dj" path="res://code/mainLevel/arrow_enemy.gd" id="1_enb3g"]
+[ext_resource type="Texture2D" uid="uid://bjai1jb772d22" path="res://assets/ui/arrow.png" id="2_kwe7s"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_idi46"]
+points = PackedVector2Array(24, 12, 1, 23, 1, 1)
+
+[node name="arrowEnemy" type="CharacterBody2D"]
+position = Vector2(1100, 499)
+script = ExtResource("1_enb3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("2_kwe7s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, -12)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_idi46")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

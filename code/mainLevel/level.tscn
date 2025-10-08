@@ -1065,3 +1065,4 @@ script = ExtResource("189_wrqaj")
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="." method="_on_buff_2_pressed"]
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="HUD/pickBuff" method="_on_buff_2_pressed"]
 [connection signal="tutKeyPress" from="Tutorial" to="keyPressSound" method="_on_tutorial_tut_key_press"]
+[connection signal="startPhaseTwo" from="BossEnemy" to="." method="_on_boss_enemy_start_phase_two"]

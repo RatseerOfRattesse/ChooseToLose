@@ -16,6 +16,8 @@ var takeDamage = true
 #Make sure damage variable is also incrased for the bullet buff
 @export var damage = 1
 
+signal startPhaseTwo
+
 func _ready():
 	#print(level)
 	pass
@@ -69,6 +71,8 @@ func phaseOne():
 
 func phaseTwo():
 	pass
+	level.phaseActive = true
+	level.phaseTwoStarted = true
 	print('phase 2 worked')
 	#what is going to happen at 50% health
 

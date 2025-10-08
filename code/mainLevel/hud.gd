@@ -29,7 +29,12 @@ func damage():
 	if level.ingame == true:
 		health -= 1
 		level.livingEnemies -= 1
-	
+
+func damageBE():
+	if level.ingame == true:
+		health -= 1
+		level.bossEnemies -= 1
+
 func _process(_delta):
 	if health == 1:
 		health3.hide()

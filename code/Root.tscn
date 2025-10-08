@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://6at0nrm2gqiy"]
+[gd_scene load_steps=10 format=3 uid="uid://6at0nrm2gqiy"]
 
 [ext_resource type="Script" uid="uid://cxgtunqsb1al3" path="res://code/root.gd" id="1_6xt7p"]
 [ext_resource type="PackedScene" uid="uid://doiqq2ujfn8yl" path="res://code/Background/Background.tscn" id="2_jx1b7"]
 [ext_resource type="PackedScene" uid="uid://cwbhkipmq33dq" path="res://code/Menus/mainMenu.tscn" id="3_stn8c"]
 [ext_resource type="PackedScene" uid="uid://bqebleahj8hg5" path="res://code/mainLevel/level.tscn" id="4_dojg0"]
+[ext_resource type="PackedScene" uid="uid://bmxerevfarx61" path="res://code/mainLevel/boss_attack_room.tscn" id="5_krj5a"]
 [ext_resource type="AudioStream" uid="uid://c7di8hr6eyws7" path="res://assets/audio/OneDay.mp3" id="5_nbccd"]
 [ext_resource type="AudioStream" uid="uid://l1gw0hcxhu7k" path="res://assets/audio/sfx/ui/click.wav" id="6_5xb0a"]
-[ext_resource type="Script" uid="uid://bye6susv5p638" path="res://code/button_receiver.gd" id="7_gj6i2"]
-[ext_resource type="Script" uid="uid://cmv8qgc70w6rj" path="res://code/button_press.gd" id="7_q2yla"]
+[ext_resource type="Script" path="res://code/button_receiver.gd" id="7_gj6i2"]
+[ext_resource type="Script" path="res://code/button_press.gd" id="7_q2yla"]
 
 [node name="Root" type="Node"]
 process_mode = 3
@@ -18,8 +19,12 @@ process_mode = 1
 
 [node name="MainMenu" parent="." instance=ExtResource("3_stn8c")]
 process_mode = 1
+z_index = -1
 
 [node name="Level" parent="MainMenu" instance=ExtResource("4_dojg0")]
+
+[node name="BossAttackRoom" parent="MainMenu" instance=ExtResource("5_krj5a")]
+z_index = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3

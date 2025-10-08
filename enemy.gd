@@ -13,6 +13,7 @@ var scaleFactor = 1
 @onready var level = get_node('../../Level')
 @onready var deathSound = get_node('../enemyDied')
 
+
 var rotation_direction = 0
 
 func _physics_process(delta):
@@ -25,7 +26,10 @@ func _process(_delta):
 	else:
 		#level.livingEnemies -= 1
 		queue_free()
-		killThySelf.damage()
+		if doDecreaseLE == true:
+			killThySelf.damage()
+		if doDecreaseBE == true:
+			killThySelf.damageBE()
 	if enemyHealth < deathThreshhold:
 		if doDecreaseLE == true:
 			level.livingEnemies -= 1

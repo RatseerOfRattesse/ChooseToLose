@@ -6,6 +6,8 @@ extends Node2D
 @onready var tutorial = get_node('Tutorial')
 @onready var player = get_node('player2')
 @onready var bossEnemy = get_node('BossEnemy')
+@onready var mainMenu = get_node('../../MainMenu')
+@onready var bossRoom = get_node('../BossAttackRoom')
 @export var wave = 0
 @export var perWaveBuff = 0
 @export var enemyPerWave = wave * perWaveBuff
@@ -29,6 +31,7 @@ var enemySpawnXTop = 2100
 var damageTaken = 1
 var bossAlive = false
 var bossEnemiesLoaded = false
+var phaseTwoStarted = false
 
 func changeDT():
 	DT -= 1
@@ -39,7 +42,6 @@ func changeEnemyScale():
 func _ready():
 	if startButton:
 		startButton.pressed.connect(on_start_pressed)
-	print(bossScene)
 
 func on_start_pressed():
 	self.show()
@@ -58,13 +60,22 @@ func _process(_delta):
 		enemiesLoaded = true
 		#print("win")
 	if bossEnemies <= 0 and bossEnemiesLoaded == true:
-		print('well this did something, at least')
 		phaseActive = false
 		bossEnemiesLoaded = false
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true && bossAlive == false:
 		hud.win()
 	#print("enemiesLoaded: " + str(enemiesLoaded))a
 	#print("perWaveBuff: " + str(perWaveBuff))
+	if phaseTwoStarted == true:
+		phaseTwoStarted = false
+		initiatePhaseTwo()
+
+func initiatePhaseTwo():
+	pass
+	mainMenu.doPhaseTwo()
+	self.hide()
+	bossRoom.doTheThing()
+	print('the initiation function ran')
 
 func spawnEnemy():
 	enemy = enemyScene.instantiate()
@@ -136,3 +147,7 @@ func _on_buff_2_pressed() -> void:
 
 func _on_pick_buff_increase_damage_taken() -> void:
 	damageTaken += 0.5
+
+
+func _on_boss_enemy_start_phase_two() -> void:
+	print('i got the signal')
