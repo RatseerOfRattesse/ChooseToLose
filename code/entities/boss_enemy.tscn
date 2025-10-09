@@ -1,7 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqdm8dya4kdf5"]
+[gd_scene load_steps=26 format=3 uid="uid://dqdm8dya4kdf5"]
 
 [ext_resource type="Script" uid="uid://d3bu101r1py3s" path="res://code/entities/boss_enemy.gd" id="1_x4wsp"]
-[ext_resource type="Texture2D" uid="uid://drewx8lserh86" path="res://assets/game/boss.png" id="2_x4wsp"]
+[ext_resource type="Texture2D" uid="uid://bq1ilkgtn6yso" path="res://assets/game/boss_death/frame0000.png" id="2_xbdqf"]
+[ext_resource type="Texture2D" uid="uid://cjud6srwnnmnh" path="res://assets/game/boss_death/frame0001.png" id="3_6fmeu"]
+[ext_resource type="Texture2D" uid="uid://d13gyop3q2ua1" path="res://assets/game/boss_death/frame0002.png" id="4_x66fa"]
+[ext_resource type="Texture2D" uid="uid://hpcoxayc8poa" path="res://assets/game/boss_death/frame0003.png" id="5_uw1kl"]
+[ext_resource type="Texture2D" uid="uid://dh1jd23nflp5i" path="res://assets/game/boss_death/frame0004.png" id="6_naju6"]
+[ext_resource type="Texture2D" uid="uid://byov1s0ul70xk" path="res://assets/game/boss_death/frame0005.png" id="7_g8dvb"]
+[ext_resource type="Texture2D" uid="uid://cur1dae2kc61m" path="res://assets/game/boss_death/frame0006.png" id="8_iwkle"]
+[ext_resource type="Texture2D" uid="uid://0m280tmd6c6p" path="res://assets/game/boss_death/frame0007.png" id="9_2vkis"]
+[ext_resource type="Texture2D" uid="uid://bcqdphdywf3d7" path="res://assets/game/boss_death/frame0008.png" id="10_w74kq"]
+[ext_resource type="Texture2D" uid="uid://dmosdi1i6qu0" path="res://assets/game/boss_death/frame0009.png" id="11_w02eo"]
+[ext_resource type="Texture2D" uid="uid://dsvbiv7457c1x" path="res://assets/game/boss_death/frame0010.png" id="12_kipgy"]
+[ext_resource type="Texture2D" uid="uid://3x5jb25aikwx" path="res://assets/game/boss_death/frame0011.png" id="13_flto2"]
+[ext_resource type="Texture2D" uid="uid://cpyxgptdoa4xy" path="res://assets/game/boss_death/frame0012.png" id="14_qxt5f"]
+[ext_resource type="Texture2D" uid="uid://cgjwsrmq26imx" path="res://assets/game/boss_death/frame0013.png" id="15_kx0ne"]
+[ext_resource type="Texture2D" uid="uid://deu7yj21onqnw" path="res://assets/game/boss_death/frame0014.png" id="16_swcnw"]
+[ext_resource type="Texture2D" uid="uid://b0474kqgtessy" path="res://assets/game/boss_death/frame0015.png" id="17_nyrbj"]
+[ext_resource type="Texture2D" uid="uid://bmx3ueubk345m" path="res://assets/game/boss_death/frame0016.png" id="18_ojahf"]
+[ext_resource type="Texture2D" uid="uid://doien8cufj2gn" path="res://assets/game/boss_death/frame0017.png" id="19_ik6w3"]
+[ext_resource type="Texture2D" uid="uid://dhpna1graqeuw" path="res://assets/game/boss_death/frame0018.png" id="20_6r8tj"]
+[ext_resource type="Script" uid="uid://7lgp2hbug7p8" path="res://code/entities/boss_sprite.gd" id="21_6fmeu"]
+[ext_resource type="AudioStream" uid="uid://bawu6hrdq3wog" path="res://assets/audio/sfx/game/boss_damage.wav" id="22_g8dvb"]
+[ext_resource type="AudioStream" uid="uid://dkye46tthyrfu" path="res://assets/audio/sfx/game/boss_death.wav" id="24_2vkis"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6ny4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xbdqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6fmeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x66fa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uw1kl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_naju6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g8dvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iwkle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2vkis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w74kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w02eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kipgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_flto2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qxt5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kx0ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_swcnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_nyrbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ojahf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ik6w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6r8tj")
+}],
+"loop": true,
+"name": &"death",
+"speed": 4.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4wsp"]
 radius = 88.09086
@@ -10,10 +96,14 @@ radius = 88.09086
 position = Vector2(761, 176)
 script = ExtResource("1_x4wsp")
 
-[node name="bossSprite" type="Sprite2D" parent="."]
-position = Vector2(137, 133)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_x4wsp")
+[node name="bossSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(137, 134)
+scale = Vector2(1.4960938, 1.4960938)
+sprite_frames = SubResource("SpriteFrames_u6ny4")
+animation = &"death"
+frame = 4
+frame_progress = 0.88390094
+script = ExtResource("21_6fmeu")
 
 [node name="bossArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -23,4 +113,13 @@ collision_mask = 2
 position = Vector2(138, 133)
 shape = SubResource("CircleShape2D_x4wsp")
 
+[node name="BossDamaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_g8dvb")
+bus = &"SFX"
+
+[node name="BossDied" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_2vkis")
+bus = &"SFX"
+
+[connection signal="bossDied" from="." to="bossSprite" method="_on_boss_enemy_boss_died"]
 [connection signal="area_entered" from="bossArea" to="." method="_on_boss_area_area_entered"]

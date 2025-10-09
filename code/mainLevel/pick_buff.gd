@@ -10,6 +10,7 @@ var selecting = true
 var maxHealth = 3
 
 signal increaseDamageTaken
+signal buffReceived
 
 var buffList = ['Increase per wave big bullet allowance by two',
 'Plus 0.5 bullet damage', 'Heal +1 health', 'Gain 2 extra max health']
@@ -52,7 +53,9 @@ func activateBuff(buffSelection):
 func _on_buff_1_pressed() -> void:
 	pauseMenu.pressed = false
 	activateBuff(buffSelectOne)
+	buffReceived.emit()
 
 func _on_buff_2_pressed() -> void:
 	pauseMenu.pressed = false
 	activateBuff(buffSelectTwo)
+	buffReceived.emit()

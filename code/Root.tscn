@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6at0nrm2gqiy"]
+[gd_scene load_steps=20 format=3 uid="uid://6at0nrm2gqiy"]
 
 [ext_resource type="Script" uid="uid://cxgtunqsb1al3" path="res://code/root.gd" id="1_6xt7p"]
 [ext_resource type="PackedScene" uid="uid://doiqq2ujfn8yl" path="res://code/Background/Background.tscn" id="2_jx1b7"]
@@ -7,8 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bmxerevfarx61" path="res://code/mainLevel/boss_attack_room.tscn" id="5_krj5a"]
 [ext_resource type="AudioStream" uid="uid://c7di8hr6eyws7" path="res://assets/audio/OneDay.mp3" id="5_nbccd"]
 [ext_resource type="AudioStream" uid="uid://l1gw0hcxhu7k" path="res://assets/audio/sfx/ui/click.wav" id="6_5xb0a"]
-[ext_resource type="Script" path="res://code/button_receiver.gd" id="7_gj6i2"]
-[ext_resource type="Script" path="res://code/button_press.gd" id="7_q2yla"]
+[ext_resource type="Script" uid="uid://bye6susv5p638" path="res://code/button_receiver.gd" id="7_gj6i2"]
+[ext_resource type="Script" uid="uid://cmv8qgc70w6rj" path="res://code/button_press.gd" id="7_q2yla"]
+[ext_resource type="Script" uid="uid://b7cukbr8b5ngs" path="res://code/bullet_shot.gd" id="9_6pdy6"]
+[ext_resource type="AudioStream" uid="uid://dl1narvolm4vo" path="res://assets/audio/sfx/game/bullet.wav" id="9_fx1cp"]
+[ext_resource type="Script" uid="uid://xsqiqh6omr5f" path="res://code/big_bullet_shot.gd" id="10_xveqq"]
+[ext_resource type="AudioStream" uid="uid://2gq3bhue3ds7" path="res://assets/audio/sfx/game/big_bullet.wav" id="11_cgf8g"]
+[ext_resource type="AudioStream" uid="uid://cxc7nskdnlftr" path="res://assets/audio/sfx/ui/buff_received.wav" id="13_63m6l"]
+[ext_resource type="Script" uid="uid://863qmigpxjex" path="res://code/buff_received.gd" id="14_4sngg"]
+[ext_resource type="Script" uid="uid://b63pe12pdhhqm" path="res://code/player_damaged.gd" id="15_4sngg"]
+[ext_resource type="AudioStream" uid="uid://ceesbm5h5jswo" path="res://assets/audio/sfx/game/damage.ogg" id="15_wis5e"]
+[ext_resource type="Script" uid="uid://c3s8pqpogw3hy" path="res://code/death_sound.gd" id="17_6hkvn"]
+[ext_resource type="AudioStream" uid="uid://bamwu703kgi34" path="res://assets/audio/sfx/ui/death.mp3" id="17_8fksf"]
 
 [node name="Root" type="Node"]
 process_mode = 3
@@ -37,6 +47,32 @@ bus = &"Music"
 stream = ExtResource("6_5xb0a")
 bus = &"SFX"
 script = ExtResource("7_q2yla")
+
+[node name="BulletShot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_fx1cp")
+volume_db = -25.816
+bus = &"SFX"
+script = ExtResource("9_6pdy6")
+
+[node name="BigBulletShot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_cgf8g")
+bus = &"SFX"
+script = ExtResource("10_xveqq")
+
+[node name="BuffReceived" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_63m6l")
+bus = &"SFX"
+script = ExtResource("14_4sngg")
+
+[node name="PlayerDamaged" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("15_wis5e")
+bus = &"SFX"
+script = ExtResource("15_4sngg")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_8fksf")
+bus = &"SFX"
+script = ExtResource("17_6hkvn")
 
 [node name="Util" type="Node2D" parent="."]
 
