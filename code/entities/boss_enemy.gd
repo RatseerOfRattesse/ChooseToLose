@@ -25,7 +25,6 @@ signal bossDied
 
 func _ready():
 	#print(level)
-	print(bossDiedSFX)
 	pass
 
 	#print(accessHUD)
