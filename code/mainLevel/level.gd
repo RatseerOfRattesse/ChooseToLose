@@ -75,7 +75,6 @@ func initiatePhaseTwo():
 	mainMenu.doPhaseTwo()
 	self.hide()
 	bossRoom.doTheThing()
-	print('the initiation function ran')
 
 func spawnEnemy():
 	enemy = enemyScene.instantiate()
