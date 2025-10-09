@@ -16,6 +16,7 @@ var takeDamage = true
 @onready var bossDamagedSFX = get_node('BossDamaged')
 @onready var bossDiedSFX = get_node('BossDied')
 
+var bossDead = false
 #Make sure damage variable is also incrased for the bullet buff
 @export var damage = 1
 
@@ -45,10 +46,10 @@ func _process(_delta):
 				print('this is supposed to take off damage')
 				accessHUD.health -= 1
 		queue_free()
-	if Input.is_action_just_pressed("kill_boss"):
-		bossHealth = 0
 	if bossHealth < 0:
-		bossDiedSFX.play()
+		if bossDead == false:
+			bossDied.emit()
+		bossDead = true
 		bossSprite.play("death")
 		await get_tree().create_timer(7).timeout
 		autopsy = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dqdm8dya4kdf5"]
+[gd_scene load_steps=27 format=3 uid="uid://dqdm8dya4kdf5"]
 
 [ext_resource type="Script" uid="uid://d3bu101r1py3s" path="res://code/entities/boss_enemy.gd" id="1_x4wsp"]
 [ext_resource type="Texture2D" uid="uid://bq1ilkgtn6yso" path="res://assets/game/boss_death/frame0000.png" id="2_xbdqf"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://7lgp2hbug7p8" path="res://code/entities/boss_sprite.gd" id="21_6fmeu"]
 [ext_resource type="AudioStream" uid="uid://bawu6hrdq3wog" path="res://assets/audio/sfx/game/boss_damage.wav" id="22_g8dvb"]
 [ext_resource type="AudioStream" uid="uid://dkye46tthyrfu" path="res://assets/audio/sfx/game/boss_death.wav" id="24_2vkis"]
+[ext_resource type="Script" uid="uid://bcn015twwj7fp" path="res://code/entities/boss_died.gd" id="24_naju6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u6ny4"]
 animations = [{
@@ -119,7 +120,10 @@ bus = &"SFX"
 
 [node name="BossDied" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_2vkis")
+volume_db = 14.136
 bus = &"SFX"
+script = ExtResource("24_naju6")
 
 [connection signal="bossDied" from="." to="bossSprite" method="_on_boss_enemy_boss_died"]
+[connection signal="bossDied" from="." to="BossDied" method="_on_boss_enemy_boss_died"]
 [connection signal="area_entered" from="bossArea" to="." method="_on_boss_area_area_entered"]

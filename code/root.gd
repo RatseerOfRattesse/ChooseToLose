@@ -12,6 +12,7 @@ extends Node
 @onready var catjam = get_node('MainMenu/Level/Catjam')
 @onready var musicSlider = get_node('MainMenu/OptionsMenu/Music Slider')
 @onready var SFXSlider = get_node('MainMenu/OptionsMenu/SFX Slider')
+@onready var bossDiedSFX = get_node('SFX/BossDied')
 var music_index = AudioServer.get_bus_index("Music")
 var SFX_index = AudioServer.get_bus_index("SFX")
 var musicVolume = 0
@@ -48,9 +49,14 @@ func _ready():
 		
 	if SFXSlider:
 		SFXSlider.value_changed.connect(on_sfx_value_changed)
-		
-	$Music.playing = false
 	
+	$Music.playing = false
+
+func _process(_delta):
+	if Input.is_action_pressed("kill_boss"):
+		print("rat")
+		bossDiedSFX.play()
+
 func on_quit_pressed():
 	get_tree().quit()
 	
