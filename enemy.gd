@@ -21,6 +21,13 @@ func _physics_process(delta):
 	rotation += rotation_direction * rotation_enemyspeed * delta
 	move_and_slide()
 func _process(_delta):
+	if Input.is_action_just_pressed("win"):
+		if doDecreaseLE == true:
+			level.livingEnemies -= 1
+		if doDecreaseBE == true:
+			level.bossEnemies -= 1
+		deathSound.playSound()
+		queue_free()
 	if position.x > 0:
 		pass
 	else:

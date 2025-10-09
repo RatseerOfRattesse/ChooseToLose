@@ -12,15 +12,22 @@ var takeDamage = true
 
 @onready var level = get_node('../../Level')
 @onready var accessHUD = get_node('../../Level/HUD')
+@onready var bossSprite = get_node('bossSprite')
+@onready var bossDamagedSFX = get_node('BossDamaged')
+@onready var bossDiedSFX = get_node('BossDied')
 
+var bossDead = false
 #Make sure damage variable is also incrased for the bullet buff
 @export var damage = 1
 
 signal startPhaseTwo
+signal bossDamaged
+signal bossDied
 
 func _ready():
 	#print(level)
 	pass
+
 	#print(accessHUD)
 
 func _physics_process(delta):
@@ -40,9 +47,14 @@ func _process(_delta):
 				accessHUD.health -= 1
 		queue_free()
 	if bossHealth < 0:
-		queue_free()
+		if bossDead == false:
+			bossDied.emit()
+		bossDead = true
+		bossSprite.play("death")
+		await get_tree().create_timer(7).timeout
 		autopsy = true
 		accessHUD.win()
+		queue_free()
 	if remainingPhases == 3 and bossHealth <= 75:
 		remainingPhases = 2
 		phaseOne()
@@ -62,6 +74,7 @@ func _process(_delta):
 func _on_boss_area_area_entered(_area: Area2D) -> void:
 	if takeDamage == true:
 		bossHealth -= damage
+		bossDamagedSFX.play()
 
 func phaseOne():
 	pass

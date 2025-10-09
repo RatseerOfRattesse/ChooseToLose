@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwbhkipmq33dq"]
+[gd_scene load_steps=9 format=3 uid="uid://cwbhkipmq33dq"]
 
 [ext_resource type="Texture2D" uid="uid://5x8qltou1x4n" path="res://assets/ui/magnum opus.png" id="1_3igvu"]
 [ext_resource type="Script" uid="uid://thsf4qb3olda" path="res://code/Menus/main_menu.gd" id="1_7ohna"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bjai1jb772d22" path="res://assets/ui/arrow.png" id="4_6kqsr"]
 [ext_resource type="PackedScene" uid="uid://bney6d5ni1qq" path="res://code/Menus/optionsMenu.tscn" id="5_562pe"]
 [ext_resource type="Texture2D" uid="uid://18jmklvtnjcy" path="res://assets/ui/options.png" id="5_pu2bl"]
+[ext_resource type="Script" uid="uid://i7kmdh0w76kj" path="res://code/Menus/credit.gd" id="6_0cj2y"]
 [ext_resource type="Texture2D" uid="uid://b5pshp4evh2fn" path="res://assets/ui/back.png" id="7_s5wdh"]
 
 [node name="MainMenu" type="Node2D"]
@@ -16,8 +17,10 @@ position = Vector2(581, 324)
 texture = ExtResource("1_3igvu")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 1153.0
-offset_bottom = 646.0
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 1157.0
+offset_bottom = 642.0
 theme_override_fonts/font = ExtResource("3_6syeo")
 theme_override_font_sizes/font_size = 72
 text = "[CHOOSE TO LOSE]"
@@ -46,13 +49,14 @@ text = "OPTIONS"
 
 [node name="Credit" type="RichTextLabel" parent="."]
 offset_left = 406.0
-offset_top = 348.0
+offset_top = 345.0
 offset_right = 770.0
-offset_bottom = 391.0
+offset_bottom = 388.0
 bbcode_enabled = true
 text = "Made by [url=\"https://github.com/idi0cy\"]idi0cy[/url] and [url=\"https://ratseerofrattesse.github.io\"]RatseerOfRattesse[/url].
-Asset credits: [url=\"https://ratseerofrattesse.github.io/assets/misc/chooseToLoseCredit/index.html\"]Credits[/url]"
+Asset credits: [url=\"https://ratseerofrattesse.github.io/Choose%20To%20Lose/#asset-sources\"]Credits[/url]"
 horizontal_alignment = 1
+script = ExtResource("6_0cj2y")
 
 [node name="OptionsMenu" parent="." instance=ExtResource("5_562pe")]
 visible = false

@@ -9,6 +9,7 @@ extends Control
 var healthIndicator = [health1, health2, health3]
 signal nextWave
 signal died
+signal damageTaken
 var dead = false
 @onready var waveIndicator = get_node('WaveIndicator')
 @onready var enemyIndicator = get_node('EnemyIndicator')
@@ -29,6 +30,7 @@ func damage():
 	if level.ingame == true:
 		health -= 1
 		level.livingEnemies -= 1
+		damageTaken.emit()
 
 func damageBE():
 	if level.ingame == true:
@@ -73,7 +75,7 @@ func _process(_delta):
 		health4.hide()
 		health5.hide()
 		dead = true
-		die()
+		#die()
 		health = 5
 	
 	waveIndicator.text = "WAVE: " + str(level.wave)
@@ -81,9 +83,6 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("die"):
 		die()
-		
-	if Input.is_action_just_pressed("win"):
-		win()
 	
 	if deathScreen.visible:
 		winScreen.hide()
