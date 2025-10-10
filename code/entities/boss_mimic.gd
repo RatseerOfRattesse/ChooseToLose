@@ -15,12 +15,19 @@ func _physics_process(delta):
 
 func _process(_delta):
 	if bossSpawned == true:
-		print(level.boss.bossDead)
 		if level.boss.bossDead == true:
-			print("fuck you")
+			print("ts should not be printing")
+			position.x = 20000
+			hide()
+			z_index = -50
 			queue_free()
-			print("im still standinggggggg")
-
+			bossSpawned = false
 
 func _on_level_boss_spawned() -> void:
 	bossSpawned = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	print('it ran omg')
+	queue_free()
+	print("I'm still standing")

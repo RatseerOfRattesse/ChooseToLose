@@ -16,6 +16,7 @@ extends Node2D
 @export var bigBulletRefill = 2
 @export var bossEnemies = 0
 @export var phaseActive = false
+@export var iHateMimics = false
 
 signal bossSpawned
 signal stopHealthUpdate
@@ -94,13 +95,21 @@ func initiatePhaseTwo():
 	bossRoom.doTheThing()
 
 func spawnBossMimics():
-	print("rat")
 	for i in range(4):
 		mimic = mimicScene.instantiate()
 		add_child(mimic)
 		mimic.show()
 		var phase3Position = [100,200,300,400,500]
 		mimic.position = Vector2(boss.position.x, phase3Position[i])
+
+func alternateMimicSpawn():
+	for i in range(4):
+		mimic = bossScene.instantiate()
+		add_child(mimic)
+		var phase3Position = [100,200,300,400,500]
+		mimic.position = Vector2(boss.position.x, phase3Position[i])
+		mimic.damage = 0
+		mimic.mimicMode = true
 
 func spawnEnemy():
 	enemy = enemyScene.instantiate()
@@ -120,7 +129,6 @@ func spawnBoss():
 	boss.damage = damageTaken
 	bossAlive = true
 	enemiesLoaded = true
-	pass
 
 func spawnBossEnemies():
 	for i in range(15):
