@@ -13,6 +13,7 @@ func _physics_process(delta):
 	rotation += rotation_direction * 5 * delta
 	move_and_slide()
 
+#WHY THE FUCK YOU NO WORK
 func _process(_delta):
 	if bossSpawned == true:
 		if level.boss.bossDead == true:
