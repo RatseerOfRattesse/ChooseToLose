@@ -13,13 +13,11 @@ func _physics_process(delta):
 	rotation += rotation_direction * 5 * delta
 	move_and_slide()
 
+#WHY THE FUCK YOU NO WORK
 func _process(_delta):
 	if bossSpawned == true:
-		print(level.boss.bossDead)
 		if level.boss.bossDead == true:
-			print("fuck you")
-			queue_free()
-			print("im still standinggggggg")
+			hide()
 
 
 func _on_level_boss_spawned() -> void:

@@ -1,6 +1,37 @@
 extends ProgressBar
 
 @onready var level = get_node("../../Level")
+@onready var label = get_node("Label")
+
+const namePrefixes = [
+	'MICRO',
+	'GOO',
+	'AMA',
+	'NVI',
+	'AP',
+	'YOU',
+	'ME',
+	'ADO',
+	'INT',
+	'TES',
+	'DIS',
+	'SAM'
+]
+const nameSuffixes = [
+	'SOFT',
+	'GLE',
+	'ZON',
+	'DIA',
+	'PLE',
+	'TUBE',
+	'TA',
+	'BE',
+	'EL',
+	'LA',
+	'X',
+	'NEY',
+	'SUNG'
+]
 
 var bossSpawned = false
 
@@ -19,3 +50,4 @@ func _process(_delta):
 func _on_level_boss_spawned() -> void:
 	show()
 	bossSpawned = true
+	label.text = "HERALD OF " + namePrefixes[randi_range(0,11)] + nameSuffixes[randi_range(0,11)]

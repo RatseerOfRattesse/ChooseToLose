@@ -17,6 +17,7 @@ var phase3Position = [100,200,300,400,500]
 @onready var bossDamagedSFX = get_node('BossDamaged')
 @onready var bossDiedSFX = get_node('BossDied')
 @onready var healthBar = get_node("../ProgressBar")
+@onready var mimic = get_node("../BossMimic")
 
 var bossDead = false
 #Make sure damage variable is also incrased for the bullet buff
@@ -49,8 +50,11 @@ func _process(_delta):
 		bossDead = true
 		bossDiedSFX.play()
 		bossSprite.play("death")
+		print("played")
 		healthBar.bossSpawned = false
-		await get_tree().create_timer(7).timeout
+		mimic.bossSpawned = false
+		await get_tree().create_timer(4.5).timeout
+		bossSprite.stop()
 		autopsy = true
 		accessHUD.win()
 		level.bossAnimDone = true
