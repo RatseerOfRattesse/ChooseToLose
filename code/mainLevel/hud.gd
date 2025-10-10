@@ -75,6 +75,7 @@ func _process(_delta):
 		health4.hide()
 		health5.hide()
 		dead = true
+		print("i dead")
 		#die()
 		health = 5
 	

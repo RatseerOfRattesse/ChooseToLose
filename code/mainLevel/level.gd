@@ -17,13 +17,18 @@ extends Node2D
 @export var bossEnemies = 0
 @export var phaseActive = false
 
+signal bossSpawned
+signal stopHealthUpdate
+
 var ingame = false
 var enemiesLoaded = false
 var enemyScene = preload('res://code/entities/enemy.tscn')
 var bossScene = preload('res://code/entities/boss_enemy.tscn')
+var mimicScene = preload('res://code/entities/boss_mimic.tscn')
 var enemyCount = 0
 var enemy
 var boss
+var mimic
 var livingEnemies = 0
 var enemySpeed = 150.0
 var enemySpawnXBottom = 1100
@@ -32,6 +37,9 @@ var damageTaken = 1
 var bossAlive = false
 var bossEnemiesLoaded = false
 var phaseTwoStarted = false
+var bossAnimDone = true
+var isBossSpawnable = true
+var bossDead
 
 func changeDT():
 	DT -= 1
@@ -40,6 +48,7 @@ func changeEnemyScale():
 	enemyScale -= 0.2 * enemyScale
 
 func _ready():
+	
 	if startButton:
 		startButton.pressed.connect(on_start_pressed)
 
@@ -55,7 +64,11 @@ func _process(_delta):
 				spawnEnemy()
 	else:
 		if wave % 10 == 0 and wave != 0 and enemiesLoaded == false:
-			spawnBoss()
+			if isBossSpawnable == true:
+				spawnBoss()
+				bossSpawned.emit()
+				bossAnimDone = false
+				isBossSpawnable = false
 	if livingEnemies == enemyPerWave:
 		enemiesLoaded = true
 		#print("win")
@@ -69,12 +82,25 @@ func _process(_delta):
 	if phaseTwoStarted == true:
 		phaseTwoStarted = false
 		initiatePhaseTwo()
+	if bossDead == false:
+		if boss.bossDead == true:
+			stopHealthUpdate.emit()
+			bossDead = true
 
 func initiatePhaseTwo():
 	pass
 	mainMenu.doPhaseTwo()
 	self.hide()
 	bossRoom.doTheThing()
+
+func spawnBossMimics():
+	print("rat")
+	for i in range(4):
+		mimic = mimicScene.instantiate()
+		add_child(mimic)
+		mimic.show()
+		var phase3Position = [100,200,300,400,500]
+		mimic.position = Vector2(boss.position.x, phase3Position[i])
 
 func spawnEnemy():
 	enemy = enemyScene.instantiate()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=192 format=3 uid="uid://bqebleahj8hg5"]
+[gd_scene load_steps=194 format=3 uid="uid://bqebleahj8hg5"]
 
 [ext_resource type="Script" uid="uid://dbnw1cgrafsjb" path="res://code/mainLevel/level.gd" id="1_2jpq4"]
 [ext_resource type="Texture2D" uid="uid://cglx6xxisb5uf" path="res://assets/level/lvl1.png" id="1_c4mxw"]
@@ -189,6 +189,8 @@
 [ext_resource type="PackedScene" uid="uid://dqdm8dya4kdf5" path="res://code/entities/boss_enemy.tscn" id="184_6m8ss"]
 [ext_resource type="AudioStream" uid="uid://xd7i2h8mfghp" path="res://assets/audio/enemyDeath.mp3" id="188_ep36a"]
 [ext_resource type="Script" uid="uid://cvdusaqds3qgb" path="res://code/mainLevel/enemy_died.gd" id="189_wrqaj"]
+[ext_resource type="PackedScene" uid="uid://d3vyuqxs8dhs4" path="res://code/entities/boss_mimic.tscn" id="190_wrqaj"]
+[ext_resource type="Script" uid="uid://f12lix0k2r4k" path="res://code/mainLevel/progress_bar.gd" id="191_1hhaw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jpq4"]
 shader = ExtResource("2_ildd6")
@@ -680,6 +682,8 @@ animations = [{
 process_mode = 1
 top_level = true
 script = ExtResource("1_2jpq4")
+metadata/_edit_horizontal_guides_ = [-358.0]
+metadata/_edit_vertical_guides_ = [562.0]
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -692,6 +696,7 @@ script = ExtResource("4_6xhm6")
 
 [node name="player2" type="CharacterBody2D" parent="."]
 process_mode = 1
+texture_filter = 1
 position = Vector2(583, 350)
 script = ExtResource("5_alqkf")
 
@@ -1045,6 +1050,20 @@ position = Vector2(-290, 80)
 stream = ExtResource("188_ep36a")
 script = ExtResource("189_wrqaj")
 
+[node name="BossMimic" parent="." instance=ExtResource("190_wrqaj")]
+position = Vector2(-342, -31.999998)
+scale = Vector2(0.9744844, 1.0979961)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 394.0
+offset_top = 19.0
+offset_right = 729.0
+offset_bottom = 42.0
+script = ExtResource("191_1hhaw")
+
+[connection signal="bossSpawned" from="." to="BossMimic" method="_on_level_boss_spawned"]
+[connection signal="bossSpawned" from="." to="ProgressBar" method="_on_level_boss_spawned"]
+[connection signal="stopHealthUpdate" from="." to="ProgressBar" method="_on_level_stop_health_update"]
 [connection signal="paused" from="PauseMenu" to="Background" method="_on_pause_menu_paused"]
 [connection signal="unpaused" from="PauseMenu" to="Background" method="_on_pause_menu_unpaused"]
 [connection signal="died" from="HUD" to="HUD/DeathScreen/Label" method="_on_hud_died"]
@@ -1065,4 +1084,3 @@ script = ExtResource("189_wrqaj")
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="." method="_on_buff_2_pressed"]
 [connection signal="pressed" from="HUD/pickBuff/Buff2" to="HUD/pickBuff" method="_on_buff_2_pressed"]
 [connection signal="tutKeyPress" from="Tutorial" to="keyPressSound" method="_on_tutorial_tut_key_press"]
-[connection signal="startPhaseTwo" from="BossEnemy" to="." method="_on_boss_enemy_start_phase_two"]

@@ -54,8 +54,12 @@ func _on_buff_1_pressed() -> void:
 	pauseMenu.pressed = false
 	activateBuff(buffSelectOne)
 	buffReceived.emit()
+	if level.bossAnimDone == true:
+		level.isBossSpawnable = true
 
 func _on_buff_2_pressed() -> void:
 	pauseMenu.pressed = false
 	activateBuff(buffSelectTwo)
 	buffReceived.emit()
+	if level.bossAnimDone == true:
+		level.isBossSpawnable = true

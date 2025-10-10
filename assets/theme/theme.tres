@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bom8e7tjcko6t"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bom8e7tjcko6t"]
 
 [ext_resource type="FontFile" uid="uid://co587xvk0v3qi" path="res://assets/font/CourierPrime-Regular.ttf" id="1_r3pl3"]
 
@@ -24,8 +24,12 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10c53"]
+bg_color = Color(0.9898438, 3.946722e-06, 7.70092e-07, 1)
+
 [resource]
 default_font = ExtResource("1_r3pl3")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_ny3hw")
 Button/styles/normal = SubResource("StyleBoxFlat_r3pl3")
 HSlider/styles/slider = SubResource("StyleBoxFlat_enqth")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_10c53")

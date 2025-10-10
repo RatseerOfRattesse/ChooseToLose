@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqdm8dya4kdf5"]
+[gd_scene load_steps=26 format=3 uid="uid://dqdm8dya4kdf5"]
 
 [ext_resource type="Script" uid="uid://d3bu101r1py3s" path="res://code/entities/boss_enemy.gd" id="1_x4wsp"]
 [ext_resource type="Texture2D" uid="uid://bq1ilkgtn6yso" path="res://assets/game/boss_death/frame0000.png" id="2_xbdqf"]
@@ -23,7 +23,6 @@
 [ext_resource type="Script" uid="uid://7lgp2hbug7p8" path="res://code/entities/boss_sprite.gd" id="21_6fmeu"]
 [ext_resource type="AudioStream" uid="uid://bawu6hrdq3wog" path="res://assets/audio/sfx/game/boss_damage.wav" id="22_g8dvb"]
 [ext_resource type="AudioStream" uid="uid://dkye46tthyrfu" path="res://assets/audio/sfx/game/boss_death.wav" id="24_2vkis"]
-[ext_resource type="Script" uid="uid://bcn015twwj7fp" path="res://code/entities/boss_died.gd" id="24_naju6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u6ny4"]
 animations = [{
@@ -98,8 +97,9 @@ position = Vector2(761, 176)
 script = ExtResource("1_x4wsp")
 
 [node name="bossSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(137, 134)
-scale = Vector2(1.4960938, 1.4960938)
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u6ny4")
 animation = &"death"
 frame = 4
@@ -111,7 +111,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="bossHitBox" type="CollisionShape2D" parent="bossArea"]
-position = Vector2(138, 133)
 shape = SubResource("CircleShape2D_x4wsp")
 
 [node name="BossDamaged" type="AudioStreamPlayer" parent="."]
@@ -122,8 +121,5 @@ bus = &"SFX"
 stream = ExtResource("24_2vkis")
 volume_db = 14.136
 bus = &"SFX"
-script = ExtResource("24_naju6")
 
-[connection signal="bossDied" from="." to="bossSprite" method="_on_boss_enemy_boss_died"]
-[connection signal="bossDied" from="." to="BossDied" method="_on_boss_enemy_boss_died"]
 [connection signal="area_entered" from="bossArea" to="." method="_on_boss_area_area_entered"]

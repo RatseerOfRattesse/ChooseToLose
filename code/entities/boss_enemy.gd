@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-var bossSpeed = 50
+var bossSpeed = 25
 var bossHealth = 100
 var rotation_enemyspeed = 5
 var rotation_direction = 0
 var moving = true
 var remainingPhases = 3
 var takeDamage = true
+var phase3Position = [100,200,300,400,500]
 #var phaseActive = false
 @export var autopsy = false
 
@@ -15,14 +16,11 @@ var takeDamage = true
 @onready var bossSprite = get_node('bossSprite')
 @onready var bossDamagedSFX = get_node('BossDamaged')
 @onready var bossDiedSFX = get_node('BossDied')
+@onready var healthBar = get_node("../ProgressBar")
 
 var bossDead = false
 #Make sure damage variable is also incrased for the bullet buff
 @export var damage = 1
-
-signal startPhaseTwo
-signal bossDamaged
-signal bossDied
 
 func _ready():
 	#print(level)
@@ -31,10 +29,11 @@ func _ready():
 	#print(accessHUD)
 
 func _physics_process(delta):
-	if moving == true:
-		velocity = transform.x * -1 * bossSpeed
-		rotation += rotation_direction * rotation_enemyspeed * delta
-		move_and_slide()
+	if bossDead == false:
+		if moving == true:
+			velocity = transform.x * -1 * bossSpeed
+			rotation += rotation_direction * rotation_enemyspeed * delta
+			move_and_slide()
 
 func _process(_delta):
 	#print(bossHealth)
@@ -47,13 +46,14 @@ func _process(_delta):
 				accessHUD.health -= 1
 		queue_free()
 	if bossHealth < 0:
-		if bossDead == false:
-			bossDied.emit()
 		bossDead = true
+		bossDiedSFX.play()
 		bossSprite.play("death")
+		healthBar.bossSpawned = false
 		await get_tree().create_timer(7).timeout
 		autopsy = true
 		accessHUD.win()
+		level.bossAnimDone = true
 		queue_free()
 	if remainingPhases == 3 and bossHealth <= 75:
 		remainingPhases = 2
@@ -68,7 +68,7 @@ func _process(_delta):
 		bossSpeed = 0
 		takeDamage = false
 	else:
-		bossSpeed = 50
+		bossSpeed = 25
 		takeDamage = true
 
 func _on_boss_area_area_entered(_area: Area2D) -> void:
@@ -93,4 +93,5 @@ func phaseTwo():
 func phaseThree():
 	pass
 	print('phase 3 worked')
-	#you get the fucking point
+	level.spawnBossMimics()
+	position.y = phase3Position[randi_range(0,4)]
