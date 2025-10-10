@@ -55,10 +55,9 @@ func _process(_delta):
 			bossSprite.play("death")
 		healthBar.bossSpawned = false
 		level.iHateMimics = true
-		await get_tree().create_timer(7).timeout
+		#await get_tree().create_timer(7).timeout
 		if mimicMode == false:
 			level.bossAnimDone = true
-		mimic.bossSpawned = false
 		await get_tree().create_timer(4.5).timeout
 		bossSprite.stop()
 		autopsy = true
