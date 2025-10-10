@@ -50,7 +50,6 @@ func _process(_delta):
 		bossDead = true
 		bossDiedSFX.play()
 		bossSprite.play("death")
-		print("played")
 		healthBar.bossSpawned = false
 		mimic.bossSpawned = false
 		await get_tree().create_timer(4.5).timeout
