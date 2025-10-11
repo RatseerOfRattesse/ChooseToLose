@@ -76,7 +76,6 @@ func _process(_delta):
 	if bossEnemies <= 0 and bossEnemiesLoaded == true:
 		phaseActive = false
 		bossEnemiesLoaded = false
-	print(bossAlive)
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true && bossAlive == false:
 		hud.win()
 	#print("enemiesLoaded: " + str(enemiesLoaded))a
@@ -107,7 +106,7 @@ func alternateMimicSpawn():
 	for i in range(4):
 		mimic = bossScene.instantiate()
 		add_child(mimic)
-		var phase3Position = [100,200,300,400,500]
+		var phase3Position = [81, 243, 405, 567]
 		mimic.position = Vector2(boss.position.x, phase3Position[i])
 		mimic.damage = 0
 		mimic.mimicMode = true
