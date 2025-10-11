@@ -76,6 +76,7 @@ func _process(_delta):
 	if bossEnemies <= 0 and bossEnemiesLoaded == true:
 		phaseActive = false
 		bossEnemiesLoaded = false
+	print(bossAlive)
 	if livingEnemies == 0 && enemiesLoaded == true && ingame == true && bossAlive == false:
 		hud.win()
 	#print("enemiesLoaded: " + str(enemiesLoaded))a

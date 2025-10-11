@@ -62,6 +62,7 @@ func _process(_delta):
 		bossSprite.stop()
 		autopsy = true
 		accessHUD.win()
+		level.bossAlive = false
 		queue_free()
 	if remainingPhases == 3 and bossHealth <= 75:
 		remainingPhases = 2
