@@ -7,9 +7,10 @@ var rotation_direction = 0
 var moving = true
 var remainingPhases = 3
 var takeDamage = true
-var phase3Position = [100,200,300,400,500]
+var phase3Position = [81, 243, 405, 567]
 #var phaseActive = false
 @export var autopsy = false
+@export var mimicMode = false
 
 @onready var level = get_node('../../Level')
 @onready var accessHUD = get_node('../../Level/HUD')
@@ -26,7 +27,7 @@ var bossDead = false
 func _ready():
 	#print(level)
 	pass
-
+	level.iHateMimics = false
 	#print(accessHUD)
 
 func _physics_process(delta):
@@ -41,22 +42,27 @@ func _process(_delta):
 	if position.x > -100:
 		pass
 	else:
-		if level.ingame == true:
-			for i in accessHUD.health + 3:
-				print('this is supposed to take off damage')
-				accessHUD.health -= 1
+		if mimicMode == false:
+			if level.ingame == true:
+				for i in accessHUD.health + 3:
+					print('this is supposed to take off damage')
+					accessHUD.health -= 1
 		queue_free()
 	if bossHealth < 0:
 		bossDead = true
-		bossDiedSFX.play()
-		bossSprite.play("death")
+		if mimicMode == false:
+			bossDiedSFX.play()
+			bossSprite.play("death")
 		healthBar.bossSpawned = false
-		mimic.bossSpawned = false
+		level.iHateMimics = true
+		#await get_tree().create_timer(7).timeout
+		if mimicMode == false:
+			level.bossAnimDone = true
 		await get_tree().create_timer(4.5).timeout
 		bossSprite.stop()
 		autopsy = true
 		accessHUD.win()
-		level.bossAnimDone = true
+		level.bossAlive = false
 		queue_free()
 	if remainingPhases == 3 and bossHealth <= 75:
 		remainingPhases = 2
@@ -73,11 +79,15 @@ func _process(_delta):
 	else:
 		bossSpeed = 25
 		takeDamage = true
+	if mimicMode == true:
+		if level.iHateMimics == true:
+			queue_free()
 
 func _on_boss_area_area_entered(_area: Area2D) -> void:
 	if takeDamage == true:
-		bossHealth -= damage
-		bossDamagedSFX.play()
+		if mimicMode == false:
+			bossHealth -= damage
+			bossDamagedSFX.play()
 
 func phaseOne():
 	pass
@@ -96,5 +106,5 @@ func phaseTwo():
 func phaseThree():
 	pass
 	print('phase 3 worked')
-	level.spawnBossMimics()
+	level.alternateMimicSpawn()
 	position.y = phase3Position[randi_range(0,4)]
