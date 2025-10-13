@@ -116,6 +116,7 @@ func spawnEnemy():
 func spawnBoss():
 	boss = bossScene.instantiate()
 	add_child(boss)
+	boss.remainingPhases = 3
 	boss.position = Vector2(1200, randi_range(100, 400))
 	boss.damage = damageTaken
 	bossAlive = true
